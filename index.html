@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+</head>
+
+<body>
+    <header class="fixed w-full">
+        <nav class="w-full flex text-3xl bg-gray-900 text-white justify-between py-5 items-center px-5">
+            <i class="fa-solid fa-bars cursor-pointer" id="menu"></i>
+            <h1 class="font-bold">Portfólio</h1>
+            <div id="darkModeBtn"
+                class="w-14 h-8 bg-gray-400 rounded-full relative cursor-pointer transition-colors duration-500">
+                <div class="bola absolute top-1 left-1 w-6 h-6 bg-white rounded-full transition-all duration-500"></div>
+            </div>
+
+
+        </nav>
+        <div
+            class="bg-gray-900/90 h-screen text-white flex justify-start gap-10 py-2 font-bold text-xl flex-col items-center w-40 rounded-br-xl shadow shadow-md shadow-blue-900 hidden" id="menuNav">
+            <a href="#sobre" class="hover:text-red-500 transition duration-300">Sobre</a>
+            <a href="#certificados" class="hover:text-red-500 transition duration-300">Certificados</a>
+            <a href="#exp" class="hover:text-red-500 transition duration-300">Experiência</a>
+            <a href="#projetos" class="hover:text-red-500 transition duration-300">Projetos</a>
+        </div>
+    </header>
+
+    <main></main>
+
+    <footer></footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
