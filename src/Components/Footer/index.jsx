@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer>
             <h1>
-                Bryan
+                <a href="#">Bryan</a>
             </h1>
         </footer>
     )

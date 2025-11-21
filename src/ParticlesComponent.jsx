@@ -1,5 +1,5 @@
 import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim"; 
+import { loadSlim } from "tsparticles-slim";
 import { useCallback, useMemo } from "react";
 
 const ParticlesComponent = () => {
@@ -22,47 +22,38 @@ const ParticlesComponent = () => {
                 },
                 onHover: {
                     enable: true,
-                    mode: ["attract", "grab", "connect"],
+                    mode: ["bubble"],
                 },
                 resize: true,
             },
             modes: {
-                push: {
-                    quantity: 4,
-                },
                 repulse: {
-                    distance: 200,
-                    duration: 0.5,
+                    distance: 250,
+                    duration: 0.3,
                 },
                 bubble: {
-                    distance: 200,
+                    distance: 50,
                     duration: 2,
-                    opacity: 0.5,
-                    size: 10,
+                    opacity: 0.4,
+                    size: 20,
+                    color: "#a200ffff"
                 },
                 attract: {
-                    distance: 300,
+                    distance: 100,
                     duration: 0.1,
-                },
-                remove: {
-                    quantity: 4,
-                },
-                trail: {
-                    delay: 0.1,
-                    quantity: 10,
-                },
+                }
             },
         },
         particles: {
             color: {
-                value: "#ffffff",
+                value: "#ea00ffff",
             },
             links: {
-                color: "#ffffff",
-                distance: 150,
+                color: "#ffffffff",
+                distance: 50,
                 enable: true,
-                opacity: 0.5,
-                width: 1,
+                opacity: 0.3,
+                width: 2,
             },
             move: {
                 direction: "none",
@@ -70,25 +61,25 @@ const ParticlesComponent = () => {
                 outModes: {
                     default: "bounce",
                 },
-                random: false,
-                speed: 2,
+                random: true,
+                speed: 3,
                 straight: false,
             },
             number: {
                 density: {
                     enable: true,
-                    area: 800,
+                    area: 1000,
                 },
-                value: 200,
+                value: 100,
             },
             opacity: {
-                value: 0.5,
+                value: 0.95,
             },
             shape: {
                 type: "circle",
             },
             size: {
-                value: { min: 1, max: 5 },
+                value: { min: 1, max: 10 },
             },
         },
         detectRetina: true,
@@ -105,7 +96,7 @@ const ParticlesComponent = () => {
                 left: 0,
                 width: "100%",
                 height: "100%",
-                zIndex: -1000,
+                zIndex: -1,
             }}
         />
     );

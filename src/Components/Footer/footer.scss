@@ -4,4 +4,16 @@ footer {
     bottom: 0;
     right: 5%;
     color: white;
+
+    h1 {
+        transition: .3s;
+
+        a {
+            font-family: 'Hobbiton Brushhand';
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
 }
