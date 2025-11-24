@@ -10,11 +10,13 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-synthesis: none;
   font-family: 'Aldrich';
   font-synthesis: none;
+  box-sizing: border-box;
   color: white;
   cursor: url('./assets/cursor/cursor.cur'), auto;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
@@ -23,15 +25,5 @@ body {
 
 h1 {
   font-family: 'Hobbiton Brushhand';
-  font-size: 3em;
-  color: rgb(255, 255, 255);
-  cursor: url('./assets/cursor/pointer.cur'), auto;
-  text-shadow: 1px 10px 10px rgb(119, 0, 255);
-}
-
-a {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  text-shadow: 1px 1px 1px red;
-  cursor: url('./assets/cursor/pointer.cur'), auto;
+  font-size: 5vw;
 }

@@ -18,25 +18,18 @@ const ParticlesComponent = () => {
             events: {
                 onClick: {
                     enable: true,
-                    mode: ["repulse"],
+                    mode: "repulse",
                 },
                 onHover: {
                     enable: true,
-                    mode: ["bubble"],
+                    mode: "attract",
                 },
                 resize: true,
             },
             modes: {
                 repulse: {
-                    distance: 250,
+                    distance: 200,
                     duration: 0.3,
-                },
-                bubble: {
-                    distance: 50,
-                    duration: 2,
-                    opacity: 0.4,
-                    size: 20,
-                    color: "#a200ffff"
                 },
                 attract: {
                     distance: 100,
@@ -49,14 +42,14 @@ const ParticlesComponent = () => {
                 value: "#ea00ffff",
             },
             links: {
-                color: "#ffffffff",
+                color: "#ea00ffff",
                 distance: 50,
                 enable: true,
-                opacity: 0.3,
-                width: 2,
+                opacity: 1,
+                width: 3,
             },
             move: {
-                direction: "none",
+                direction: "random",
                 enable: true,
                 outModes: {
                     default: "bounce",
@@ -68,18 +61,18 @@ const ParticlesComponent = () => {
             number: {
                 density: {
                     enable: true,
-                    area: 1000,
+                    area: 500,
                 },
-                value: 100,
+                value: 200,
             },
             opacity: {
-                value: 0.95,
+                value: 1,
             },
             shape: {
-                type: "circle",
+                type: "none",
             },
             size: {
-                value: { min: 1, max: 10 },
+                value: { min: 1, max: 2 },
             },
         },
         detectRetina: true,
