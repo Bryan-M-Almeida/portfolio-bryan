@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+header {
+  @apply fixed top-0 left-0 z-50 transition-all duration-300 px-6 py-4 w-screen;
+
+  div {
+    @apply px-20 w-full mx-auto flex justify-between items-center;
+    a.logo {
+      @apply text-2xl font-bold tracking-tighter uppercase text-[white];
+
+      span {
+        @apply transition-colors;
+      }
+    }
+
+    nav {
+      @apply hidden md:flex gap-8 uppercase tracking-widest;
+
+      a {
+        @apply transition-colors text-[white] hover:text-[#d4af37];
+      }
+    }
+
+    a.btn {
+      @apply px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[white] transition-all transform hover:scale-105 active:scale-95;
+    }
+  }
+}
