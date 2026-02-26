@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="35">
+  <!-- < -->
+  <path
+    d="M20,30 L10,50 L25,70"
+    fill="none"
+    stroke="#D4AF37"
+    stroke-width="18"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- / (barra do meio) -->
+  <line
+    x1="45"
+    y1="30"
+    x2="55"
+    y2="70"
+    stroke="#D4AF37"
+    stroke-width="18"
+    stroke-linecap="round"
+  />
+  <!-- > -->
+  <path
+    d="M75,30 L90,50 L75,70"
+    fill="none"
+    stroke="#D4AF37"
+    stroke-width="18"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
