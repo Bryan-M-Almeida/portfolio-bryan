@@ -1,0 +1,67 @@
+@use "tailwindcss";
+
+section#sobre {
+  @apply py-32 bg-[#0A0A0A];
+
+  div.container {
+    @apply max-w-7xl mx-auto px-6;
+
+    div.grid-container {
+      @apply grid lg:grid-cols-2 gap-20 items-center;
+
+      div.title-container {
+        opacity: 1;
+        transform: none;
+
+        div.title {
+          @apply mb-12;
+
+          h2 {
+            @apply text-4xl md:text-5xl font-bold mb-4;
+            opacity: 1;
+            transform: none;
+          }
+          p {
+            opacity: 1;
+            transform: none;
+            @apply text-zinc-400 max-w-2xl text-lg;
+          }
+
+          div.bar {
+            @apply h-1 w-20 bg-[#d4af37] mt-6 rounded-full;
+          }
+        }
+
+        div.descricao-container {
+          @apply space-y-6 text-zinc-400 text-lg leading-relaxed;
+
+          div.skills-container {
+            @apply grid grid-cols-2 gap-8 pt-8;
+
+            div.card {
+              @apply bg-white/5 p-2 hover:bg-white/10 hover:-translate-y-2 rounded-xl transition-all duration-300;
+              h4 {
+                @apply text-white font-bold mb-2;
+              }
+
+              p {
+                @apply text-sm font-medium leading-relaxed;
+              }
+            }
+          }
+        }
+      }
+
+      div.foto-apresentacao {
+        @apply relative aspect-square rounded-2xl overflow-hidden border border-white/10;
+
+        img.dev {
+          @apply object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700;
+        }
+        div.blend {
+          @apply mix-blend-overlay absolute inset-0 bg-[#d4af37]/10;
+        }
+      }
+    }
+  }
+}

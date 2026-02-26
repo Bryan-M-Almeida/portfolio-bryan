@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+section#projetos {
+  @apply bg-[#0A0A0A]/50 py-32;
+
+  div.projetos-container {
+    @apply max-w-7xl mx-auto px-6 container;
+
+    div.title-container {
+      @apply mb-12;
+
+      h2 {
+        @apply text-4xl md:text-5xl font-bold mb-4;
+      }
+      p {
+        @apply text-zinc-400 max-w-2xl text-lg leading-relaxed tracking-widest;
+      }
+
+      div.bar {
+        @apply h-1 w-20 bg-[#D4AF37] mt-6 rounded-full;
+      }
+    }
+
+    div.projetos {
+      @apply flex gap-10 items-center flex-row;
+    }
+  }
+}
