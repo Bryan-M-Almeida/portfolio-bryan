@@ -1,0 +1,26 @@
+{
+  "backend": ["Python", "PHP", "Node.js", "Express", "SQL"],
+  "frontend": [
+    "JavaScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "Vue",
+    "TypeScript"
+  ],
+  "tools": [
+    "Git",
+    "Figma",
+    "SEO",
+    "Web Performance",
+    "Accessibility",
+    "Docker"
+  ],
+  "aprendizado_atual": [
+    "AI integrations",
+    "PHP",
+    "Next.js",
+    "Advanced System Design",
+    "Python"
+  ]
+}

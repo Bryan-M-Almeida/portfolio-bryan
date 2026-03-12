@@ -10,7 +10,7 @@ const Hero = () => (
           <h1 className="font-display">
             Desenvolvedor
             <br />
-            <span class="text-gradient-gold italic">Front-End</span>
+            <span className="text-gradient-gold italic">Front-End</span>
           </h1>
           <p>
             Focado em performance extrema, arquiteturas escaláveis e

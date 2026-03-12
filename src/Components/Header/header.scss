@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@use "tailwindcss";
 
 header {
   @apply fixed top-0 left-0 z-50 transition-all duration-300 px-6 py-4 w-screen;

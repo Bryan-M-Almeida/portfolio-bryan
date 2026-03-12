@@ -16,9 +16,9 @@ const Header = () => (
               d="M30,30 L15,50 L30,70"
               fill="none"
               className="stroke-[#D4AF37] group-hover:stroke-white transition-colors"
-              stroke-width="8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <line
               x1="45"
@@ -26,16 +26,16 @@ const Header = () => (
               x2="55"
               y2="70"
               className="stroke-[#D4AF37] group-hover:stroke-white transition-colors"
-              stroke-width="8"
-              stroke-linecap="round"
+              strokeWidth="8"
+              strokeLinecap="round"
             />
             <path
               d="M70,30 L85,50 L70,70"
               fill="none"
               className="stroke-[#D4AF37] group-hover:stroke-white transition-colors"
-              stroke-width="8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </a>

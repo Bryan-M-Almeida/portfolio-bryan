@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@use "tailwindcss";
 
 section#projetos {
   @apply bg-[#0A0A0A]/50 py-32;
@@ -22,7 +22,66 @@ section#projetos {
     }
 
     div.projetos {
-      @apply flex gap-10 items-center flex-row;
+      @apply flex gap-10 items-center flex-row overflow-x-auto scroll-smooth snap-x;
+
+      div.card {
+        @apply rounded-3xl overflow-hidden flex flex-col h-full min-w-[400px] mb-5 snap-start;
+
+        div.imagem-container {
+          @apply relative aspect-video overflow-hidden;
+
+          img.imagem {
+            @apply w-full h-full object-cover transition-transform duration-700;
+          }
+          div.links {
+            @apply flex items-center justify-center gap-4;
+
+            a.site {
+              @apply p-3 bg-white  hover:bg-[#D4AF37] rounded-full;
+            }
+          }
+        }
+
+        div.infos-container {
+          @apply p-8 flex flex-col flex-grow;
+
+          div.title {
+            @apply flex justify-between items-center mb-4;
+
+            h3 {
+              @apply text-2xl font-bold;
+            }
+
+            span {
+              @apply text-xs uppercase tracking-widest;
+            }
+          }
+
+          p.desc {
+            @apply text-zinc-400 mb-6;
+          }
+
+          div.descricao {
+            @apply space-y-4 mb-8;
+
+            div {
+              h4 {
+                @apply text-xs font-bold uppercase text-zinc-500;
+              }
+              p {
+                @apply text-sm text-zinc-300;
+              }
+            }
+          }
+
+          div.tecnologias {
+            @apply mx-auto flex flex-wrap gap-2;
+            span {
+              @apply px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-zinc-400 hover:bg-white/20 cursor-pointer font-bold hover:text-[#D4AF37] transition-colors;
+            }
+          }
+        }
+      }
     }
   }
 }
