@@ -23,7 +23,7 @@ const Tecnologias = () => {
               </div>
               <ul>
                 {tecnologias.frontend.map((tecnologia) => (
-                  <li>
+                  <li key={tecnologia}>
                     <div className="ico"></div>
                     {tecnologia}
                   </li>
@@ -38,7 +38,7 @@ const Tecnologias = () => {
               </div>
               <ul>
                 {tecnologias.backend.map((tecnologia) => (
-                  <li>
+                  <li key={tecnologia}>
                     <div className="ico"></div>
                     {tecnologia}
                   </li>
@@ -53,7 +53,7 @@ const Tecnologias = () => {
               </div>
               <ul>
                 {tecnologias.tools.map((tecnologia) => (
-                  <li>
+                  <li key={tecnologia}>
                     <div className="ico"></div>
                     {tecnologia}
                   </li>
@@ -63,9 +63,7 @@ const Tecnologias = () => {
           </div>
 
           <div className="aprendizado-atual glass-card">
-            
             <div className="aprendizado-container">
-
               <div className="title">
                 <h3 className="font-display">Aprendizados Atuais</h3>
                 <p>
@@ -76,7 +74,7 @@ const Tecnologias = () => {
 
               <div className="aprendizados">
                 {tecnologias.aprendizado_atual.map((aprendizado) => (
-                  <span>{aprendizado}</span>
+                  <span key={aprendizado}>{aprendizado}</span>
                 ))}
               </div>
             </div>

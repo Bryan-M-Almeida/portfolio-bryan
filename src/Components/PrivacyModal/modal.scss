@@ -1,0 +1,16 @@
+@use "tailwindcss";
+
+div#privacy-modal.modal-overlay {
+  @apply fixed top-0 left-0 w-full h-full backdrop-blur z-[999] items-center justify-center flex;
+  div.modal {
+    @apply bg-[#111] text-white max-w-[600px] w-[90%] p-10 rounded-xl relative max-h-[80vh] overflow-y-auto;
+
+    h2,
+    h3 {
+      @apply my-2 font-bold text-xl text-[#d4af37];
+    }
+    button.modal-close {
+      @apply fixed top-10 right-10 text-white cursor-pointer transition-all hover:text-[#d4af37];
+    }
+  }
+}

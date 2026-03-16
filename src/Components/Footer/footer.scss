@@ -1,0 +1,36 @@
+@use "tailwindcss";
+
+footer {
+  @apply py-12 border-t border-white/5 bg-[0A0A0A];
+
+  div.container {
+    @apply max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8;
+
+    div.info-container {
+      @apply text-center md:text-left;
+      p.font-display {
+        @apply text-xl font-bold tracking-tighter mb-2 uppercase;
+      }
+      p.direitos {
+        @apply text-zinc-500 text-sm;
+      }
+    }
+
+    p.frase-aleatoria.font-display {
+      @apply text-[#d4af37] italic opacity-60 text-lg;
+    }
+
+    div.termos-container {
+      @apply flex gap-6 text-xs font-bold uppercase tracking-widest text-zinc-500;
+
+      button {
+        @apply hover:text-white uppercase transition-colors cursor-pointer;
+      }
+    }
+  }
+
+  div.terms-modal,
+  div.privacy-modal {
+    @apply fixed top-0 left-0;
+  }
+}

@@ -62,9 +62,9 @@ section#tecnologias {
         }
 
         div.aprendizados {
-          @apply flex flex-wrap gap-3 justify-center max-w-xl;
+          @apply flex flex-wrap gap-5 justify-center max-w-xl;
           span {
-            @apply px-4 py-2 bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/20 rounded-lg text-sm font-medium;
+            @apply px-4 py-2 bg-[#d4af37]/10 text-[#d4af37]/80 border border-[#d4af37]/20 rounded-lg text-sm font-medium hover:-translate-y-1 hover:bg-[#d4af37]/20 hover:text-[#d4af37] cursor-pointer transition-all;
           }
         }
       }

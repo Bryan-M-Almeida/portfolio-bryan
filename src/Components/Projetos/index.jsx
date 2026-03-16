@@ -73,7 +73,7 @@ const Projetos = () => {
 
                     <div className="tecnologias">
                       {projeto.tecnologias.map((tecnologia) => (
-                        <span>{tecnologia}</span>
+                        <span key={tecnologia}>{tecnologia}</span>
                       ))}
                     </div>
                   </div>
