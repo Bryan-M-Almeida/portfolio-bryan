@@ -1,0 +1,64 @@
+@use "tailwindcss";
+
+section#experiencia {
+  @apply py-32 bg-[#0A0A0A];
+
+  div.container {
+    @apply max-w-7xl mx-auto px-6;
+
+    div.title-container {
+      @apply mb-12;
+
+      h2 {
+        @apply text-4xl md:text-5xl font-bold mb-4;
+      }
+      p {
+        @apply text-zinc-400 max-w-2xl text-lg;
+      }
+      div.bar {
+        @apply h-1 w-20 bg-[#D4AF37] mt-6 rounded-full;
+      }
+    }
+
+    div.experiencias-container {
+      @apply space-y-12;
+
+      div.card {
+        @apply relative border-l pl-12 border-white/10;
+
+        div.indice {
+          @apply absolute left-[-5px] top-0 w-[10px] h-[10px] bg-[#D4AF37] rounded-full shadow-[0_0_10px_rgba(212,175,55,0.5)];
+        }
+
+        div.title-container {
+          @apply flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2;
+
+          div.title {
+            h3 {
+              @apply text-2xl text-[#D4AF37] font-bold text-white;
+            }
+            p {
+              @apply text-[#D4AF37] font-medium;
+            }
+          }
+
+          span.year {
+            @apply text-zinc-500 text-sm;
+          }
+        }
+
+        p.descricao {
+          @apply text-zinc-400 mb-6 max-w-3xl;
+        }
+
+        ul.atividades {
+          @apply grid md:grid-cols-2 gap-4;
+
+          li {
+            @apply flex items-start gap-3 text-sm text-zinc-300;
+          }
+        }
+      }
+    }
+  }
+}

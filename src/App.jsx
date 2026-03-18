@@ -1,3 +1,4 @@
+import Experiencia from "./Components/Experiencia";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
@@ -6,7 +7,6 @@ import Sobre from "./Components/Sobre";
 import Tecnologias from "./Components/Tecnologias";
 
 function App() {
-
   return (
     <div className="min-h-screen">
       <Header />
@@ -15,6 +15,7 @@ function App() {
         <Sobre />
         <Projetos />
         <Tecnologias />
+        <Experiencia />
 
         <Footer />
       </main>
