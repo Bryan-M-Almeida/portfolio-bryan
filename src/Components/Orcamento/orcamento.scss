@@ -1,0 +1,58 @@
+@use "tailwindcss";
+
+section#orcamento {
+  @apply py-32 bg-[#1A0B2E]/10;
+
+  div.orcamento-container {
+    @apply max-w-4xl mx-auto px-6 text-center;
+
+    div.title-container {
+      @apply mb-12;
+
+      h2.font-display {
+        @apply text-4xl md:text-5xl font-bold mb-4;
+      }
+
+      p {
+        @apply text-zinc-400 max-w-2xl text-lg;
+      }
+
+      div.bar {
+        @apply h-1 w-20 bg-[#D4AF37] rounded-full mt-6;
+      }
+    }
+
+    div.glass-card {
+      @apply p-10 rounded-3xl text-left;
+
+      form {
+        @apply space-y-6;
+
+        div.grid {
+          @apply md:grid-cols-2 gap-6;
+
+          div {
+            @apply space-y-2;
+
+            label {
+              @apply text-xs font-bold uppercase tracking-widest text-zinc-500;
+            }
+            input {
+              @apply w-full border border-white/10 bg-white/5 rounded-xl px-4 py-3 focus:border-[#D4AF37] outline-none transition-colors mt-2 appearance-none;
+            }
+          }
+        }
+
+        div {
+          @apply space-y-2;
+          select {
+            @apply w-full border border-white/10 bg-white/5 rounded-xl px-4 py-3 focus:border-[#D4AF37] outline-none transition-colors mt-2 appearance-none;
+            option{
+                @apply text-black bg-black/25;
+            }
+          }
+        }
+      }
+    }
+  }
+}

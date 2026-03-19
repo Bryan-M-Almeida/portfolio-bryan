@@ -1,0 +1,26 @@
+@use "tailwindcss";
+
+section#recrutadores {
+  @apply py-20 bg-[#D4AF37]/5 border-y border-[#D4AF37]/10;
+
+  div.container-recrutadores {
+    @apply max-w-7xl mx-auto px-6 text-center;
+    h2.font-display {
+      @apply text-4xl mb-6 font-bold;
+    }
+    p {
+      @apply text-zinc-400 max-w-2xl mx-auto mb-10 text-lg;
+    }
+
+    div.interesses {
+      @apply flex flex-wrap justify-center gap-6;
+      button {
+        @apply flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A0A0A] font-bold rounded-full hover:bg-white transition-all transform hover:-translate-y-1 cursor-pointer;
+      }
+
+      a {
+        @apply flex items-center gap-2 px-8 py-4 rounded-full hover:bg-white/7 transition-all transform hover:-translate-y-1;
+      }
+    }
+  }
+}
