@@ -1,7 +1,7 @@
 @use "tailwindcss";
 
 section#hero {
-  @apply relative min-h-screen flex items-center justify-center pt-20 overflow-hidden;
+  @apply relative min-h-screen flex items-center justify-center overflow-hidden;
 
   div.back {
     @apply absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/99 via-[#1A0B2E]/20 to-[#0A0A0A] pointer-events-none;

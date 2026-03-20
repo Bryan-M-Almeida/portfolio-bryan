@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Contato from "./Components/Contato";
 import Experiencia from "./Components/Experiencia";
 import Footer from "./Components/Footer";
@@ -10,10 +11,12 @@ import Sobre from "./Components/Sobre";
 import Tecnologias from "./Components/Tecnologias";
 
 function App() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
-      <Header />
-      <main>
+      <Header isOpen={open} setOpen={setOpen} />
+      <main onClick={() => setOpen(false)}>
         <Hero />
         <Sobre />
         <Projetos />
