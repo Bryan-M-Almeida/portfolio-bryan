@@ -1,6 +1,13 @@
 import "./orcamento.scss";
+import CustomSelect from "../CustomSelect";
+import { Send } from "lucide-react";
 
 const Orcamento = () => {
+  const options = [
+    { value: "web", label: "Web" },
+    { value: "landing", label: "Landing Page" },
+    { value: "other", label: "Outro" },
+  ];
   return (
     <section id="orcamento">
       <div className="orcamento-container">
@@ -22,7 +29,7 @@ const Orcamento = () => {
               </div>
 
               <div>
-                <label htmlFor="emailOrcamento">Nome</label>
+                <label htmlFor="emailOrcamento">Email</label>
                 <input
                   type="email"
                   id="emailOrcamento"
@@ -30,14 +37,30 @@ const Orcamento = () => {
                 />
               </div>
             </div>
-            <div>
+
+            <div className="select">
               <label htmlFor="projectType">Tipo de projeto</label>
-              <select name="projectType" id="projectType">
-                <option value="web">Web</option>
-                <option value="landing">Landing Page</option>
-                <option value="other">Outro</option>
-              </select>
+              <CustomSelect
+                options={options}
+                placeholder="Selecione uma opção"
+                name="categoria"
+              />
             </div>
+
+            <div className="mensagemOrcamento-container">
+              <label htmlFor="mensagemOrcamento">Mensagem</label>
+              <textarea
+                name="mensagemOrcamento"
+                id="mensagemOrcamento"
+                rows="5"
+                placeholder="Como posso ajudar?"
+              ></textarea>
+            </div>
+
+            <button type="submit" className="orcamentoSubmit">
+              Enviar mensagem
+              <Send size={20} />
+            </button>
           </form>
         </div>
       </div>
