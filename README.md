@@ -1,16 +1,67 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Status](https://img.shields.io/badge/status-active-success)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Deploy](https://img.shields.io/badge/deploy-vercel-black)
+![Tech](https://img.shields.io/badge/stack-React%20%7C%20Next.js%20%7C%20TypeScript-informational)
 
-Currently, two official plugins are available:
+This repository contains my personal portfolio, developed to present projects, technical skills, and professional experience in software development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## React Compiler
+The portfolio showcases a selection of real-world projects, including freelance work, personal applications, and fullstack solutions. The focus is on performance, clean design, and practical problem-solving.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Responsive interface for desktop and mobile
+- Project showcase with detailed descriptions
+- Skills and technologies overview
+- Professional experience section
+- Contact and external links integration
+- Privacy policy modal
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies
+
+- React
+- Next.js
+- JavaScript (ES6+)
+- TypeScript
+- HTML5 & CSS3
+- Tailwind CSS & SCSS
+
+## Projects Included
+
+- **FinTrack** – Financial SaaS platform (in development)
+- **RPG Master Panel** – Fullstack RPG session manager with AI integration
+- **Axyron Global** – Institutional landing page (freelance)
+- **CodeFlow** – Productivity application with Pomodoro and dashboard
+- **Inspira** – Image exploration app using Unsplash API
+- **SEA Treinamentos** – Course landing page (freelance)
+- **Garcia Soluções Elétricas** – Service landing page (freelance)
+- **ReciclaTech** – Sustainability-focused web platform
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Bryan-M-Almeida/portfolio.git
+cd portfolio
+npm install
+npm run dev
+```
+
+## Deployment
+
+The project is deployed using Vercel and optimized for performance and SEO.
+
+## Contact
+
+GitHub: https://github.com/Bryan-M-Almeida
+
+Portfolio: https://portfolio-bryan-dev.vercel.app
+
+## License
+
+This project is licensed under the MIT License.
