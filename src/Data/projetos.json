@@ -1,14 +1,124 @@
 [
   {
-    "title": "lore ipsum",
-    "problema": "Clients needed a way to visualize millions of data points without browser lag or complex configuration.",
-    "descricao": "lore ipsum",
-    "solucao": "lore ipsum",
-    "tecnologias": ["lore", "ipsum"],
-    "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR22MVqfSX_5f6oCuT6Xi2pfW_4dgAeIzLl7A&s",
-    "repositorio_link": "",
-    "site_link": "",
+    "title": "FinTrack",
+    "problema": "Dificuldade em centralizar gestão financeira, controle de contas e consistência de hábitos em uma única plataforma.",
+    "descricao": "SaaS financeiro fullstack para gestão, planejamento e análise de finanças pessoais.",
+    "solucao": "Aplicação em Next.js com backend em Python, incluindo controle de contas, agendamentos, simulações, dashboard analítico, notificações e sistema de autenticação. Estrutura escalável com foco em usabilidade e performance.",
+    "tecnologias": ["Next.js", "Python", "Tailwind CSS", "SCSS"],
+    "imagem": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1774214283/FinTrack_-_Site_Imagem_q9zopn.png",
+    "repositorio_link": "https://github.com/Bryan-M-Almeida/FinTrack",
+    "site_link": "https://myfinancetrack.vercel.app",
     "id": 1,
-    "finalidade": "Case Study"
+    "finalidade": "SaaS em desenvolvimento"
+  },
+  {
+    "title": "RPG Master Panel",
+    "problema": "Falta de ferramentas centralizadas para gestão de sessões e conteúdo de RPG.",
+    "descricao": "Aplicação fullstack para gerenciamento de sessões e narrativa.",
+    "solucao": "Sistema com backend em Express para controle de personagens, eventos e anotações, com autenticação e integração com IA local (Ollama) para geração dinâmica de conteúdo.",
+    "tecnologias": [
+      "JavaScript",
+      "Node.js",
+      "Express",
+      "HTML5",
+      "CSS3",
+      "Ollama (IA local)"
+    ],
+    "imagem": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1774214050/RPG_Master_Panel_-_Site_imagem_etvirh.png",
+    "repositorio_link": "https://github.com/Bryan-M-Almeida/rpg-master-panel",
+    "site_link": "https://bryan-m-almeida.github.io/rpg-master-panel/",
+    "id": 2,
+    "finalidade": "Projeto pessoal"
+  },
+  {
+    "title": "Axyron Global",
+    "problema": "Ausência de presença digital estruturada para captação de clientes.",
+    "descricao": "Landing page institucional com foco em conversão.",
+    "solucao": "Desenvolvimento em React com SEO otimizado, integração com WhatsApp, formulários e estrutura orientada à geração de leads.",
+    "tecnologias": [
+      "React",
+      "Tailwind CSS",
+      "HTML5",
+      "JavaScript (ES6+)",
+      "Lucide React"
+    ],
+    "imagem": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1774211183/Axyron_global_-_Site_Imagem_qiiddp.png",
+    "repositorio_link": "https://github.com/Bryan-M-Almeida/Axyron-global",
+    "site_link": "https://www.axyronglobal.com.br",
+    "id": 3,
+    "finalidade": "Freelancer"
+  },
+  {
+    "title": "CodeFlow",
+    "problema": "Fragmentação de ferramentas reduz produtividade e foco.",
+    "descricao": "Aplicação web de produtividade com gerenciamento de tarefas.",
+    "solucao": "Sistema com CRUD, Pomodoro com notificações, dashboard analítico, LocalStorage e interface responsiva orientada à performance.",
+    "tecnologias": ["HTML5", "CSS3", "JavaScript (ES6+)"],
+    "imagem": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1774212294/CodeFlow_-_Site_Imagem_ovfdg0.png",
+    "repositorio_link": "https://github.com/Bryan-M-Almeida/codeFlow",
+    "site_link": "https://bryan-m-almeida.github.io/codeFlow/",
+    "id": 4,
+    "finalidade": "Projeto pessoal"
+  },
+  {
+    "title": "Inspira",
+    "problema": "Excesso de ruído em plataformas visuais dificulta consumo de conteúdo.",
+    "descricao": "Aplicação web para exploração de imagens via API.",
+    "solucao": "App em Vue com TypeScript consumindo API do Unsplash via Axios, com carregamento incremental e interface otimizada para performance.",
+    "tecnologias": [
+      "Vue.js",
+      "TypeScript",
+      "SCSS",
+      "HTML5",
+      "Axios",
+      "API Unsplash"
+    ],
+    "imagem": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1774212296/Inspira_-_Site_Imagem_vvgugl.png",
+    "repositorio_link": "https://github.com/Bryan-M-Almeida/Inspira",
+    "site_link": "https://inspira-pi.vercel.app",
+    "id": 5,
+    "finalidade": "Projeto de curso"
+  },
+  {
+    "title": "SEA Treinamentos",
+    "problema": "Falta de presença digital para conversão de alunos.",
+    "descricao": "Landing page institucional orientada à geração de leads.",
+    "solucao": "Página responsiva com estrutura estratégica, formulários, FAQ e integração com WhatsApp.",
+    "tecnologias": ["HTML5", "CSS3", "Tailwind CSS", "JavaScript (ES6+)"],
+    "imagem": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1774212295/Sea_treinamentos_-_Site_imagem_jasoyu.png",
+    "repositorio_link": "https://github.com/Bryan-M-Almeida/Portfolio-sea-treinamentos",
+    "site_link": "https://portfolio-sea-treinamentos.vercel.app",
+    "id": 6,
+    "finalidade": "Freelancer"
+  },
+  {
+    "title": "Garcia Soluções Elétricas",
+    "problema": "Ausência de presença digital profissional para captação local.",
+    "descricao": "Landing page institucional focada em credibilidade.",
+    "solucao": "Implementação de página responsiva com serviços, prova social e integração com WhatsApp.",
+    "tecnologias": ["HTML5", "CSS3", "JavaScript (ES6+)"],
+    "imagem": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1774212295/Garcia_-_Site_imagem_rgsqn8.png",
+    "repositorio_link": "https://github.com/Bryan-M-Almeida/landing-garcia-solucoes",
+    "site_link": "https://landing-garcia-solucoes.vercel.app",
+    "id": 7,
+    "finalidade": "Freelancer"
+  },
+  {
+    "title": "ReciclaTech",
+    "problema": "Baixa acessibilidade a soluções para reutilização de eletrônicos.",
+    "descricao": "Plataforma web voltada à sustentabilidade.",
+    "solucao": "Aplicação com renderização dinâmica via JSON, FAQ interativo, modais e interface responsiva com suporte a expansão.",
+    "tecnologias": [
+      "HTML5",
+      "CSS3",
+      "JavaScript (Vanilla)",
+      "Tailwind CSS",
+      "Font Awesome"
+    ],
+    "imagem": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1774212294/ReciclaTech_-_Site_imagem_l3ayx1.png",
+    "repositorio_link": "https://bryan-m-almeida.github.io/reciclaTech/",
+    "site_link": "https://bryan-m-almeida.github.io/reciclaTech/",
+    "id": 8,
+    "finalidade": "Projeto de curso"
   }
 ]

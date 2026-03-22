@@ -1,12 +1,47 @@
 [
   {
-    "title": "Lore ipsum",
-    "cliente": "Lore ipsum",
-    "descricao": "Lorem ipsum dolor sit amet.",
-    "inicio": 2025,
+    "title": "Desenvolvedor Front-end Freelancer",
+    "cliente": "Axyron Global",
+    "descricao": "Desenvolvimento de landing page institucional com foco em conversão e presença digital.",
+    "inicio": 2026,
     "fim": 2026,
-    "atividades": ["Lore ipsum"],
+    "atividades": [
+      "Desenvolvimento de interface com React e Tailwind CSS",
+      "Implementação de formulários e integração com WhatsApp",
+      "Aplicação de boas práticas de SEO",
+      "Estruturação de layout responsivo e otimizado para performance"
+    ],
     "id": 1,
-    "area": ""
+    "area": "Front-end"
+  },
+  {
+    "title": "Desenvolvedor Web Freelancer",
+    "cliente": "SEA Treinamentos",
+    "descricao": "Criação de landing page para divulgação de cursos e geração de leads.",
+    "inicio": 2025,
+    "fim": 2025,
+    "atividades": [
+      "Desenvolvimento de página responsiva com HTML, CSS e JavaScript",
+      "Implementação de seções estratégicas (FAQ, depoimentos, formulário)",
+      "Integração com WhatsApp para captação de leads",
+      "Otimização de layout para conversão"
+    ],
+    "id": 2,
+    "area": "Front-end"
+  },
+  {
+    "title": "Desenvolvedor Web Freelancer",
+    "cliente": "Garcia Soluções Elétricas",
+    "descricao": "Desenvolvimento de site institucional para apresentação de serviços.",
+    "inicio": 2025,
+    "fim": 2025,
+    "atividades": [
+      "Criação de landing page responsiva",
+      "Estruturação de conteúdo focado em credibilidade e serviços",
+      "Integração com WhatsApp e mapa de localização",
+      "Organização de layout voltado à experiência do usuário"
+    ],
+    "id": 3,
+    "area": "Front-end"
   }
 ]

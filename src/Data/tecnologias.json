@@ -1,28 +1,38 @@
 {
-  "backend": ["Python", "PHP", "Node.js", "Express", "SQL"],
+  "backend": [
+    "Node.js",
+    "Express",
+    "Python",
+    "REST APIs",
+    "LocalStorage",
+    "Autenticação básica"
+  ],
   "frontend": [
-    "JavaScript",
+    "JavaScript (ES6+)",
     "React",
     "Next.js",
+    "Vue.js",
+    "TypeScript",
+    "HTML5",
+    "CSS3",
     "Tailwind CSS",
-    "Vue",
-    "TypeScript"
+    "SCSS"
   ],
   "tools": [
-    "Git",
-    "Figma",
+    "Git & GitHub",
+    "Vercel",
+    "Axios",
     "SEO",
     "Web Performance",
-    "Accessibility",
-    "Docker"
+    "Responsividade",
+    "Acessibilidade (básico)"
   ],
   "aprendizado_atual": [
-    "AI integrations",
-    "PHP",
-    "Next.js",
-    "Advanced System Design",
-    "Python",
-    "Node.js",
-    "Express"
+    "Arquitetura fullstack",
+    "Integração com IA (local e APIs)",
+    "Autenticação avançada (JWT)",
+    "Banco de dados (SQL / NoSQL)",
+    "Next.js avançado",
+    "Backend com Python"
   ]
 }
