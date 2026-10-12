@@ -1,7 +1,16 @@
-import { FileDown, Mail } from "lucide-react";
+import { Building2, FileDown, Globe, Mail, Plane } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import perfil from "../../Data/perfil";
 import Reveal from "../Reveal";
+
+const DISPONIBILIDADE = [
+  { icone: Globe, texto: "Remoto" },
+  { icone: Building2, texto: "Presencial apenas na Bolívia" },
+  {
+    icone: Plane,
+    texto: "Disponível para mudança para fora da América Latina",
+  },
+];
 
 const Recrutadores = () => (
   <section id="recrutadores" className="py-12">
@@ -16,9 +25,20 @@ const Recrutadores = () => (
             </h2>
             <p className="mt-4 max-w-xl text-lg text-zinc-400">
               Estou aberto a vagas de estágio e júnior em Front-End ou Full
-              Stack, presencial ou remoto. Aqui estão os caminhos mais rápidos
-              para avaliar meu perfil.
+              Stack. Aqui estão os caminhos mais rápidos para avaliar meu
+              perfil.
             </p>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {DISPONIBILIDADE.map(({ icone: Icone, texto }) => (
+                <li
+                  key={texto}
+                  className="flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3.5 py-1.5 text-sm text-zinc-300"
+                >
+                  <Icone size={15} className="text-gold" />
+                  {texto}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:w-56 lg:flex-col">

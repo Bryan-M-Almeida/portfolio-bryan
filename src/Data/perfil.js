@@ -3,7 +3,7 @@ const perfil = {
   nome: "Bryan Maciel",
   cargo: "Desenvolvedor de Software",
   email: "bryanmacieldealmeida06@gmail.com",
-  localizacao: "Rio de Janeiro, Brasil · Remoto",
+  localizacao: "Remoto",
   githubUser: "Bryan-M-Almeida",
   curriculo: "", // ex.: "/curriculo-bryan-maciel.pdf" (coloque o arquivo em /public)
   links: {
