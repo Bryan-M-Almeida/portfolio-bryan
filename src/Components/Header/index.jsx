@@ -1,79 +1,133 @@
-import { Menu, X } from "lucide-react";
-import "./header.scss";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
-const Header = ({ isOpen, setOpen }) => {
+const LINKS = [
+  { id: "sobre", label: "Sobre" },
+  { id: "projetos", label: "Projetos" },
+  { id: "tecnologias", label: "Stack" },
+  { id: "experiencia", label: "Experiência" },
+  { id: "contato", label: "Contato" },
+];
+
+const Logo = () => (
+  <a
+    href="#inicio"
+    className="group flex items-center gap-2"
+    aria-label="Início"
+  >
+    <span className="grid h-9 w-9 place-items-center rounded-xl border border-gold/30 bg-gold/10 font-mono text-sm font-medium text-gold transition-colors group-hover:bg-gold group-hover:text-ink">
+      {"</>"}
+    </span>
+    <span className="text-lg font-semibold tracking-tight text-zinc-50">
+      Bryan<span className="text-gold">.</span>
+    </span>
+  </a>
+);
+
+const Header = () => {
+  const [aberto, setAberto] = useState(false);
+  const [rolou, setRolou] = useState(false);
+  const [ativo, setAtivo] = useState("");
+
+  useEffect(() => {
+    const onScroll = () => setRolou(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Destaca no menu a seção visível
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => e.isIntersecting && setAtivo(e.target.id));
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    LINKS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = aberto ? "hidden" : "";
+  }, [aberto]);
+
   return (
-    <header
-      className={`${isOpen ? "bg-[#0a0a0a]" : "bg-[#0a0a0a]/80 backdrop-blur"}`}
-    >
-      <div className="desktop">
-        <a href="#" className="font-display group logo flex">
-          <span className="text-[#D4AF37] group-hover:text-[white]">B</span>
-          ryan
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 100 100"
-            width="40"
-            height="35"
-          >
-            <path
-              d="M30,30 L15,50 L30,70"
-              fill="none"
-              className="stroke-[#D4AF37] group-hover:stroke-white transition-colors"
-              strokeWidth="8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <line
-              x1="45"
-              y1="30"
-              x2="55"
-              y2="70"
-              className="stroke-[#D4AF37] group-hover:stroke-white transition-colors"
-              strokeWidth="8"
-              strokeLinecap="round"
-            />
-            <path
-              d="M70,30 L85,50 L70,70"
-              fill="none"
-              className="stroke-[#D4AF37] group-hover:stroke-white transition-colors"
-              strokeWidth="8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+      <div
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-4 py-2.5 transition-all duration-300 sm:px-5 ${
+          rolou || aberto
+            ? "border-line bg-ink/75 shadow-2xl shadow-black/40 backdrop-blur-xl"
+            : "border-transparent"
+        }`}
+      >
+        <Logo />
 
-        <nav>
-          <a href="#sobre">Sobre</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#tecnologias">Tecnologias</a>
-          <a href="#contato">Contato</a>
+        <nav
+          className="hidden items-center gap-1 md:flex"
+          aria-label="Principal"
+        >
+          {LINKS.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={`rounded-full px-4 py-2 text-sm transition-colors ${
+                ativo === id
+                  ? "bg-white/[0.06] text-zinc-50"
+                  : "text-zinc-400 hover:text-zinc-50"
+              }`}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
 
-        <a href="orcamento" className="bg-[#D4AF37] text-[#0a0a0a] btn">
-          Orçamento
+        <a
+          href="#contato"
+          className="btn btn-primary hidden !px-5 !py-2 md:inline-flex"
+        >
+          Vamos conversar <ArrowUpRight size={16} />
         </a>
 
-        <div className="md:hidden">
-          {isOpen ? (
-            <X size={24} onClick={() => setOpen(false)} />
-          ) : (
-            <Menu size={24} onClick={() => setOpen(true)} />
-          )}
-        </div>
+        <button
+          type="button"
+          className="grid h-10 w-10 place-items-center rounded-xl text-zinc-200 md:hidden"
+          onClick={() => setAberto(!aberto)}
+          aria-label={aberto ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={aberto}
+        >
+          {aberto ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
 
+      {/* Menu mobile */}
       <div
-        className={`${isOpen ? "flex translate-y-5 opacity-100" : "translate-y-[-350px] opacity-0"} menu-mobile`}
+        className={`mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border border-line bg-ink/95 backdrop-blur-xl transition-all duration-300 md:hidden ${
+          aberto
+            ? "max-h-[480px] opacity-100"
+            : "pointer-events-none max-h-0 opacity-0"
+        }`}
       >
-        <nav>
-          <a href="#sobre">Sobre</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#tecnologias">Tecnologias</a>
-          <a href="#contato">Contato</a>
-          <a href="#orcamento" className="bg-[#D4AF37] text-[#0a0a0a] btn">
-            Orçamento
+        <nav className="flex flex-col p-3" aria-label="Menu mobile">
+          {LINKS.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={() => setAberto(false)}
+              className="rounded-xl px-4 py-3 text-base text-zinc-200 hover:bg-white/5"
+            >
+              {label}
+            </a>
+          ))}
+          <a
+            href="#contato"
+            onClick={() => setAberto(false)}
+            className="btn btn-primary mt-2"
+          >
+            Vamos conversar <ArrowUpRight size={16} />
           </a>
         </nav>
       </div>

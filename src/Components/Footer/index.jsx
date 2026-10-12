@@ -1,42 +1,53 @@
-import "./footer.scss";
+import { useState } from "react";
+import { ArrowUp } from "lucide-react";
 import frases from "../../Data/frases.json";
-import { useEffect, useState } from "react";
-import PrivacyModal from "../PrivacyModal/index";
+import perfil from "../../Data/perfil";
+import PrivacyModal from "../PrivacyModal";
+
+const frase = frases.frase[Math.floor(Math.random() * frases.frase.length)];
 
 const Footer = () => {
-  const [phrase, setPhrase] = useState("");
+  const [privacidade, setPrivacidade] = useState(false);
 
-  useEffect(() => {
-    const i = Math.floor(Math.random() * frases.frase.length);
-    setPhrase(frases.frase[i]);
-  }, []);
-
-  const [privacyModal, setPrivacyModal] = useState(false);
-  const [termsModal, setTermsModal] = useState(false);
   return (
-    <footer>
-      <div className="container">
-        <div className="info-container">
-          <p className="font-display">Bryan</p>
-          <p className="direitos">
-            {" "}
-            &copy; 2026 Bryan Developer Portfolio. Todos os direitos reservados.
+    <footer className="border-t border-line">
+      <div className="container-page flex flex-col items-center gap-6 py-10 text-center md:flex-row md:justify-between md:text-left">
+        <div>
+          <p className="font-semibold text-zinc-100">
+            {perfil.nome}
+            <span className="text-gold">.</span>
+          </p>
+          <p className="mt-1 text-sm text-zinc-500">
+            &copy; {new Date().getFullYear()} · Todos os direitos reservados.
           </p>
         </div>
 
-        <p className="frase-aleatoria font-display">"{phrase}"</p>
+        <p className="font-serif text-lg italic text-zinc-500">“{frase}”</p>
 
-        <div className="termos-container">
-          <button onClick={() => setPrivacyModal(true)}>Privacy</button>
-          <button onClick={() => setTermsModal(!termsModal)}>Terms</button>
+        <div className="flex items-center gap-5 text-sm text-zinc-500">
+          <button
+            type="button"
+            onClick={() => setPrivacidade(true)}
+            className="hover:text-zinc-200"
+          >
+            Privacidade
+          </button>
+          <a
+            href="#inicio"
+            className="grid h-10 w-10 place-items-center rounded-full border border-line text-zinc-400 transition-colors hover:border-gold/50 hover:text-gold"
+            aria-label="Voltar ao topo"
+          >
+            <ArrowUp size={16} />
+          </a>
         </div>
       </div>
 
       <PrivacyModal
-        isOpen={privacyModal}
-        onClose={() => setPrivacyModal(false)}
+        isOpen={privacidade}
+        onClose={() => setPrivacidade(false)}
       />
     </footer>
   );
 };
+
 export default Footer;

@@ -1,38 +1,36 @@
 {
-  "backend": [
-    "Node.js",
-    "Express",
-    "Python",
-    "REST APIs",
-    "LocalStorage",
-    "Autenticação básica"
-  ],
-  "frontend": [
-    "JavaScript (ES6+)",
-    "React",
-    "Next.js",
-    "Vue.js",
-    "TypeScript",
-    "HTML5",
-    "CSS3",
-    "Tailwind CSS",
-    "SCSS"
-  ],
-  "tools": [
-    "Git & GitHub",
-    "Vercel",
-    "Axios",
-    "SEO",
-    "Web Performance",
-    "Responsividade",
-    "Acessibilidade (básico)"
+  "grupos": [
+    {
+      "id": "frontend",
+      "titulo": "Front-End",
+      "descricao": "Interfaces rápidas, acessíveis e responsivas.",
+      "itens": ["React", "Next.js", "TypeScript", "JavaScript", "Vue.js", "Tailwind CSS", "SCSS", "HTML5", "CSS3"]
+    },
+    {
+      "id": "backend",
+      "titulo": "Back-End",
+      "descricao": "APIs, autenticação e regras de negócio.",
+      "itens": ["Node.js", "Express", "Python", "REST APIs", "Ollama"]
+    },
+    {
+      "id": "sistemas",
+      "titulo": "Sistemas & Linguagens",
+      "descricao": "Base sólida de engenharia de sistemas.",
+      "itens": ["C", "Assembly", "Java", "Python", "POO", "Estruturas de dados"]
+    },
+    {
+      "id": "tools",
+      "titulo": "Ferramentas & Práticas",
+      "descricao": "Do código ao deploy.",
+      "itens": ["Git", "GitHub", "Vercel", "Vite", "Axios", "SEO", "Web Performance", "Acessibilidade"]
+    }
   ],
   "aprendizado_atual": [
-    "Arquitetura fullstack",
+    "Arquitetura full stack",
     "Integração com IA (local e APIs)",
-    "Autenticação avançada (JWT)",
-    "Banco de dados (SQL / NoSQL)",
+    "Autenticação com JWT",
+    "Bancos de dados SQL / NoSQL",
     "Next.js avançado",
-    "Backend com Python"
+    "Back-end com Python"
   ]
 }

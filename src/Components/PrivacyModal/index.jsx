@@ -1,26 +1,46 @@
-import { FaXmark } from "react-icons/fa6";
-import "./modal.scss";
 import { useEffect } from "react";
+import { X } from "lucide-react";
 
 function PrivacyModal({ isOpen, onClose }) {
-  if (!isOpen) return null;
-
   useEffect(() => {
+    if (!isOpen) return;
     const handleKey = (e) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, []);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" id="privacy-modal" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>
-          <FaXmark size={30} />
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Política de Privacidade"
+    >
+      <div
+        className="card relative max-h-[85vh] w-full max-w-2xl overflow-y-auto !bg-surface p-6 text-left text-zinc-400 sm:p-10 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:font-medium [&_p]:leading-relaxed"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          className="absolute top-4 right-4 grid h-10 w-10 place-items-center rounded-full text-zinc-400 hover:bg-white/5 hover:text-white"
+          onClick={onClose}
+          aria-label="Fechar"
+        >
+          <X size={20} />
         </button>
 
-        <p className="text-sm opacity-70">Última atualização: Março de 2026</p>
+        <p className="mb-2 text-sm text-zinc-500">
+          Última atualização: Março de 2026
+        </p>
 
         <h2>Política de Privacidade</h2>
 

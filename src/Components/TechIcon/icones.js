@@ -1,0 +1,55 @@
+import {
+  SiAxios,
+  SiC,
+  SiCss,
+  SiExpress,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiOllama,
+  SiOpenjdk,
+  SiPython,
+  SiReact,
+  SiSass,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+  SiVite,
+  SiVuedotjs,
+} from "react-icons/si";
+import { Cpu } from "lucide-react";
+
+// Ícone + cor oficial de cada tecnologia (ou linguagem vinda do GitHub).
+export const ICONES = {
+  React: [SiReact, "#61DAFB"],
+  "Next.js": [SiNextdotjs, "#ffffff"],
+  TypeScript: [SiTypescript, "#3178C6"],
+  JavaScript: [SiJavascript, "#F7DF1E"],
+  "Vue.js": [SiVuedotjs, "#42B883"],
+  Vue: [SiVuedotjs, "#42B883"],
+  "Tailwind CSS": [SiTailwindcss, "#38BDF8"],
+  SCSS: [SiSass, "#CC6699"],
+  HTML5: [SiHtml5, "#E34F26"],
+  HTML: [SiHtml5, "#E34F26"],
+  CSS3: [SiCss, "#663399"],
+  CSS: [SiCss, "#663399"],
+  "Node.js": [SiNodedotjs, "#5FA04E"],
+  Express: [SiExpress, "#ffffff"],
+  Python: [SiPython, "#3776AB"],
+  C: [SiC, "#A8B9CC"],
+  Java: [SiOpenjdk, "#ED8B00"],
+  Assembly: [Cpu, "#d4af37"],
+  "Assembly (NASM)": [Cpu, "#d4af37"],
+  Ollama: [SiOllama, "#ffffff"],
+  Git: [SiGit, "#F05032"],
+  GitHub: [SiGithub, "#ffffff"],
+  Vercel: [SiVercel, "#ffffff"],
+  Vite: [SiVite, "#9B6BFF"],
+  Axios: [SiAxios, "#7B5CE6"],
+};
+
+export const corDaTecnologia = (nome) => ICONES[nome]?.[1] ?? "#a1a1aa";
+export const temIcone = (nome) => nome in ICONES;

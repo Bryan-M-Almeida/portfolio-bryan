@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+
+  --color-gold: #d4af37;
+  --color-gold-soft: #e9cf7a;
+  --color-ink: #09090b;
+  --color-surface: #111113;
+  --color-line: rgb(255 255 255 / 0.08);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgb(52 211 153 / 0.6);
+    }
+    50% {
+      box-shadow: 0 0 0 6px rgb(52 211 153 / 0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-ink font-sans text-zinc-300 selection:bg-gold/30 selection:text-gold-soft;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-zinc-50 tracking-tight;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .section {
+    @apply relative py-24 md:py-32;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-gold;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 bg-gold/60;
+  }
+
+  .section-title {
+    @apply mt-4 text-4xl font-semibold md:text-5xl;
+  }
+
+  .section-subtitle {
+    @apply mt-4 max-w-2xl text-lg leading-relaxed text-zinc-400;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-surface/70 backdrop-blur-sm transition-colors duration-300;
+  }
+
+  .card-hover {
+    @apply hover:border-gold/30 hover:bg-surface;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-white/[0.03] px-3 py-1 font-mono text-[11px] text-zinc-400;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 active:scale-[0.98];
+  }
+
+  .btn-primary {
+    @apply bg-gold text-ink hover:bg-gold-soft hover:shadow-[0_0_32px_-6px] hover:shadow-gold/60;
+  }
+
+  .btn-ghost {
+    @apply border border-white/15 text-zinc-100 hover:border-gold/50 hover:bg-gold/5;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-white/[0.03] px-4 py-3 text-zinc-100 placeholder:text-zinc-600 transition-colors focus:border-gold/60 focus:bg-white/[0.05] focus:outline-none;
+  }
+
+  .label {
+    @apply mb-2 block text-sm font-medium text-zinc-300;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-gold via-gold-soft to-gold bg-clip-text text-transparent;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+/* Animação de entrada ao rolar (ver hook useReveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #0d0d0f;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #2a2a2e;
+  border-radius: 10px;
+  border: 2px solid #0d0d0f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-gold);
+}
