@@ -56,9 +56,9 @@ const Contato = () => {
   };
 
   return (
-    <section id="contato" className="section">
+    <section id="contato" className="section overflow-hidden">
       <div className="pointer-events-none absolute bottom-0 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-gold/[0.07] blur-[120px]" />
-      <div className="container-page relative grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="container-page relative grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr] [&>*]:min-w-0">
         <div>
           <SectionHeader
             eyebrow="Contato"
