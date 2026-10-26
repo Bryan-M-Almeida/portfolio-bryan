@@ -1,51 +1,39 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { ArrowUp } from "lucide-react";
-import frases from "../../Data/frases.json";
 import perfil from "../../Data/perfil";
+import { useI18n } from "../../i18n/contexto";
 import PrivacyModal from "../PrivacyModal";
 
-const frase = frases.frase[Math.floor(Math.random() * frases.frase.length)];
-
 const Footer = () => {
+  const { t } = useI18n();
   const [privacidade, setPrivacidade] = useState(false);
+  const fechar = useCallback(() => setPrivacidade(false), []);
 
   return (
     <footer className="border-t border-line">
-      <div className="container-page flex flex-col items-center gap-6 py-10 text-center md:flex-row md:justify-between md:text-left">
-        <div>
-          <p className="font-semibold text-zinc-100">
-            {perfil.nome}
-            <span className="text-gold">.</span>
-          </p>
-          <p className="mt-1 text-sm text-zinc-500">
-            &copy; {new Date().getFullYear()} · Todos os direitos reservados.
-          </p>
-        </div>
-
-        <p className="font-serif text-lg italic text-zinc-500">“{frase}”</p>
-
-        <div className="flex items-center gap-5 text-sm text-zinc-500">
+      <div className="container-page flex flex-col items-start justify-between gap-6 py-10 sm:flex-row sm:items-center">
+        <p className="text-sm text-slate">
+          &copy; {new Date().getFullYear()} {perfil.nome}. {t.rodape.direitos}
+        </p>
+        <div className="flex items-center gap-5 text-sm">
           <button
             type="button"
             onClick={() => setPrivacidade(true)}
-            className="hover:text-zinc-200"
+            className="font-medium text-slate hover:text-ink"
           >
-            Privacidade
+            {t.rodape.privacidade}
           </button>
           <a
             href="#inicio"
-            className="grid h-10 w-10 place-items-center rounded-full border border-line text-zinc-400 transition-colors hover:border-gold/50 hover:text-gold"
-            aria-label="Voltar ao topo"
+            aria-label={t.rodape.topo}
+            className="grid h-10 w-10 place-items-center rounded-full ring-1 ring-line transition-colors hover:bg-ink hover:text-paper"
           >
             <ArrowUp size={16} />
           </a>
         </div>
       </div>
 
-      <PrivacyModal
-        isOpen={privacidade}
-        onClose={() => setPrivacidade(false)}
-      />
+      <PrivacyModal aberto={privacidade} onClose={fechar} />
     </footer>
   );
 };

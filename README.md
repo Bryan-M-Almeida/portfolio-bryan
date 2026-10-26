@@ -4,7 +4,7 @@
 ![Status](https://img.shields.io/badge/status-active-success)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Deploy](https://img.shields.io/badge/deploy-vercel-black)
-![Tech](https://img.shields.io/badge/stack-React%20%7C%20Next.js%20%7C%20TypeScript-informational)
+![Tech](https://img.shields.io/badge/stack-React%20%7C%20Tailwind%20%7C%20Motion-informational)
 
 This repository contains my personal portfolio, developed to present projects, technical skills, and professional experience in software development.
 
@@ -14,32 +14,32 @@ The portfolio showcases a selection of real-world projects, including freelance 
 
 ## Features
 
-- Responsive interface for desktop and mobile
-- Project showcase with detailed descriptions
-- Skills and technologies overview
-- Professional experience section
-- Contact and external links integration
-- Privacy policy modal
+- Dark theme by default, with a one-click light theme (choice is remembered)
+- Available in Portuguese, English and Spanish (`?lang=pt|en|es`, remembers the visitor's choice)
+- Hero slideshow with every live site, plus browser frames that scroll on hover
+- SEO: keywords, hreflang, Open Graph and schema.org structured data
+- "In progress" tab, with private projects available on request
+- Quote and contact forms that open the visitor's email app, no backend needed
+- Motion with [Motion](https://motion.dev), respecting "reduce motion"
 
 ## Technologies
 
-- React
-- Next.js
-- JavaScript (ES6+)
-- TypeScript
-- HTML5 & CSS3
-- Tailwind CSS & SCSS
+- React 19 + Vite
+- Tailwind CSS v4
+- Motion
+- Lucide and React Icons
 
 ## Projects Included
 
-- **FinTrack** – Financial SaaS platform (in development)
-- **RPG Master Panel** – Fullstack RPG session manager with AI integration
-- **Axyron Global** – Institutional landing page (freelance)
-- **CodeFlow** – Productivity application with Pomodoro and dashboard
-- **Inspira** – Image exploration app using Unsplash API
-- **SEA Treinamentos** – Course landing page (freelance)
-- **Garcia Soluções Elétricas** – Service landing page (freelance)
-- **ReciclaTech** – Sustainability-focused web platform
+- **Flávio Pisos e Revestimentos**: flooring store website (client)
+- **Aline & Aramis**: wedding website with online gift registry (client)
+- **Residencial Bem Cuidar**: senior living residence website (client)
+- **SEA Treinamentos**, **Garcia Soluções Elétricas** and **Legado**: landing pages and company websites
+- **Axyron Global**: offshore and wind energy company website (client)
+- **Hikari Sushi**: landing page template for Japanese restaurants
+- In development: FinTrack, NEXUS (AMD Developer Hackathon), Laura: The Temporal Ward, NEXUS.OS
+
+Projects live in `src/Data/projetos.js` and interface text in `src/i18n/textos.js`.
 
 ## Getting Started
 

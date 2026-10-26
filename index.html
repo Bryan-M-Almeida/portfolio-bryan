@@ -1,33 +1,77 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bryan Maciel · Desenvolvedor de Software</title>
+    <title>
+      Bryan Maciel | Desenvolvedor Web: sites institucionais e landing pages
+    </title>
     <meta
       name="description"
-      content="Portfólio de Bryan Maciel, desenvolvedor de software com foco em Front-End (React, Next.js e TypeScript) e projetos que vão da web a sistemas em C e Assembly."
+      content="Desenvolvimento de sites institucionais, landing pages e aplicações web de alto desempenho com React, Next.js e TypeScript. Projetos sob medida, otimizados para SEO e conversão."
+    />
+    <meta
+      name="keywords"
+      content="desenvolvedor web, desenvolvedor web freelancer, criação de sites, site institucional, landing page, desenvolvimento de sites para empresas, site profissional, otimização SEO, site rápido, desenvolvedor React, desenvolvedor Next.js, desenvolvedor TypeScript, desenvolvedor front-end, desenvolvedor full stack, web developer, freelance web developer, website development, business website, landing page developer, React developer, desarrollador web, desarrollador web freelance, diseño de páginas web, sitio web profesional, desarrollo web Bolivia, Bryan Maciel"
     />
     <meta name="author" content="Bryan Maciel" />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0f1c" />
     <link rel="canonical" href="https://portfolio-bryan-dev.vercel.app/" />
+    <link
+      rel="alternate"
+      hreflang="pt-BR"
+      href="https://portfolio-bryan-dev.vercel.app/?lang=pt"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://portfolio-bryan-dev.vercel.app/?lang=en"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://portfolio-bryan-dev.vercel.app/?lang=es"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://portfolio-bryan-dev.vercel.app/"
+    />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Aplica o tema salvo antes da página aparecer (escuro por padrão) -->
+    <script>
+      try {
+        var tema = localStorage.getItem("portfolio-tema");
+        if (tema === "light" || tema === "dark") {
+          document.documentElement.dataset.theme = tema;
+          if (tema === "light")
+            document
+              .querySelector('meta[name="theme-color"]')
+              .setAttribute("content", "#eef0f3");
+        }
+      } catch (e) {}
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://res.cloudinary.com" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bryan Maciel" />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
     <meta property="og:url" content="https://portfolio-bryan-dev.vercel.app/" />
     <meta
       property="og:title"
-      content="Bryan Maciel · Desenvolvedor de Software"
+      content="Bryan Maciel | Desenvolvedor Web"
     />
     <meta
       property="og:description"
-      content="Crio produtos web do pixel ao kernel. Projetos com React, Next.js, TypeScript, C e muito mais."
+      content="Presença digital à altura do seu negócio. Sites institucionais, landing pages e aplicações web sob medida."
     />
     <meta
       property="og:image"
@@ -38,18 +82,61 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Bryan Maciel · Desenvolvedor de Software"
-    />
+    <meta name="twitter:title" content="Bryan Maciel | Desenvolvedor Web" />
     <meta
       name="twitter:description"
-      content="Crio produtos web do pixel ao kernel. Projetos com React, Next.js, TypeScript, C e muito mais."
+      content="Presença digital à altura do seu negócio. Sites institucionais, landing pages e aplicações web sob medida."
     />
     <meta
       name="twitter:image"
       content="https://portfolio-bryan-dev.vercel.app/og.jpg"
     />
+
+    <!-- Dados estruturados para buscadores -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://portfolio-bryan-dev.vercel.app/#bryan",
+            "name": "Bryan Maciel",
+            "jobTitle": "Desenvolvedor Web",
+            "url": "https://portfolio-bryan-dev.vercel.app/",
+            "image": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1772132822/foto_kbfhxn.jpg",
+            "knowsAbout": [
+              "Desenvolvimento web",
+              "React",
+              "Next.js",
+              "TypeScript",
+              "SEO técnico",
+              "Landing pages",
+              "Sites institucionais"
+            ],
+            "knowsLanguage": ["pt-BR", "en", "es"],
+            "sameAs": [
+              "https://github.com/Bryan-M-Almeida",
+              "https://www.linkedin.com/in/bryan-maciel-de-almeida-4705942b9",
+              "https://www.instagram.com/bry.codes"
+            ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "name": "Bryan Maciel | Desenvolvimento Web",
+            "url": "https://portfolio-bryan-dev.vercel.app/",
+            "image": "https://portfolio-bryan-dev.vercel.app/og.jpg",
+            "founder": { "@id": "https://portfolio-bryan-dev.vercel.app/#bryan" },
+            "description": "Desenvolvimento de sites institucionais, landing pages e aplicações web sob medida.",
+            "serviceType": [
+              "Criação de sites institucionais",
+              "Desenvolvimento de landing pages",
+              "Desenvolvimento de aplicações web"
+            ],
+            "areaServed": ["BR", "BO", "Worldwide"]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

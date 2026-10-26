@@ -1,34 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, monospace;
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-  --color-gold: #d4af37;
-  --color-gold-soft: #e9cf7a;
-  --color-ink: #09090b;
-  --color-surface: #111113;
-  --color-line: rgb(255 255 255 / 0.08);
+/* Cores semânticas: os valores mudam com o tema (escuro é o padrão). */
+@theme inline {
+  --color-porcelain: var(--c-fundo);
+  --color-paper: var(--c-superficie);
+  --color-ink: var(--c-texto);
+  --color-slate: var(--c-suave);
+  --color-line: var(--c-borda);
+  --color-cobalt: var(--c-destaque);
+  --color-cobalt-deep: var(--c-destaque-forte);
+  --color-cobalt-soft: var(--c-destaque-fundo);
+}
 
-  --animate-marquee: marquee 40s linear infinite;
-  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --c-fundo: #0a0f1c;
+  --c-superficie: #111829;
+  --c-texto: #e9edf5;
+  --c-suave: #9aa4ba;
+  --c-borda: #232d44;
+  --c-destaque: #4f68ff;
+  --c-destaque-forte: #b3bfff;
+  --c-destaque-fundo: #1a2350;
+  --c-hover-botao: #3d55ee;
+  --c-sombra: 0 0 0 / 0.55;
+}
 
-  @keyframes marquee {
-    to {
-      transform: translateX(-50%);
-    }
-  }
-  @keyframes pulse-dot {
-    0%,
-    100% {
-      box-shadow: 0 0 0 0 rgb(52 211 153 / 0.6);
-    }
-    50% {
-      box-shadow: 0 0 0 6px rgb(52 211 153 / 0);
-    }
-  }
+[data-theme="light"] {
+  color-scheme: light;
+  --c-fundo: #eef0f3;
+  --c-superficie: #ffffff;
+  --c-texto: #0f1a2e;
+  --c-suave: #566175;
+  --c-borda: #d6dbe3;
+  --c-destaque: #2d4bff;
+  --c-destaque-forte: #1f36d1;
+  --c-destaque-fundo: #e3e7ff;
+  --c-hover-botao: #1f36d1;
+  --c-sombra: 15 26 46 / 0.45;
 }
 
 @layer base {
@@ -39,140 +56,90 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 5.5rem;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   body {
-    @apply bg-ink font-sans text-zinc-300 selection:bg-gold/30 selection:text-gold-soft;
+    @apply bg-porcelain font-sans text-[17px] leading-relaxed text-ink transition-colors duration-300;
   }
 
   h1,
   h2,
-  h3,
-  h4 {
-    @apply text-zinc-50 tracking-tight;
+  h3 {
+    @apply font-display text-ink;
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-cobalt text-white;
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-gold;
+    @apply rounded-sm outline-2 outline-offset-2 outline-cobalt;
   }
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+    @apply mx-auto w-full max-w-[1180px] px-4 sm:px-8;
   }
 
-  .section {
-    @apply relative py-24 md:py-32;
-  }
-
-  .eyebrow {
-    @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-gold;
-  }
-
-  .eyebrow::before {
-    content: "";
-    @apply h-px w-6 bg-gold/60;
-  }
-
-  .section-title {
-    @apply mt-4 text-4xl font-semibold md:text-5xl;
-  }
-
-  .section-subtitle {
-    @apply mt-4 max-w-2xl text-lg leading-relaxed text-zinc-400;
-  }
-
-  .card {
-    @apply rounded-2xl border border-line bg-surface/70 backdrop-blur-sm transition-colors duration-300;
-  }
-
-  .card-hover {
-    @apply hover:border-gold/30 hover:bg-surface;
-  }
-
-  .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-white/[0.03] px-3 py-1 font-mono text-[11px] text-zinc-400;
+  .titulo-secao {
+    @apply text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.02] font-bold tracking-[-0.03em];
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold transition-[background-color,color,box-shadow,transform] duration-200 active:scale-[0.97];
   }
 
-  .btn-primary {
-    @apply bg-gold text-ink hover:bg-gold-soft hover:shadow-[0_0_32px_-6px] hover:shadow-gold/60;
+  .btn-primario {
+    @apply bg-cobalt text-white shadow-[0_10px_30px_-12px_var(--c-destaque)] hover:bg-[var(--c-hover-botao)];
   }
 
-  .btn-ghost {
-    @apply border border-white/15 text-zinc-100 hover:border-gold/50 hover:bg-gold/5;
+  .btn-secundario {
+    @apply bg-paper text-ink ring-1 ring-line ring-inset hover:ring-ink;
   }
 
-  .field {
-    @apply w-full rounded-xl border border-line bg-white/[0.03] px-4 py-3 text-zinc-100 placeholder:text-zinc-600 transition-colors focus:border-gold/60 focus:bg-white/[0.05] focus:outline-none;
+  .chip {
+    @apply inline-flex items-center rounded-full bg-porcelain px-3 py-1 text-[13px] font-medium text-slate;
   }
 
-  .label {
-    @apply mb-2 block text-sm font-medium text-zinc-300;
+  .campo {
+    @apply w-full rounded-xl border border-line bg-paper px-4 py-3 text-ink placeholder:text-slate/60 transition-colors focus:border-cobalt focus:outline-none focus:ring-4 focus:ring-cobalt-soft;
   }
 
-  .text-gradient {
-    @apply bg-gradient-to-r from-gold via-gold-soft to-gold bg-clip-text text-transparent;
-  }
-
-  .bg-grid {
-    background-image:
-      linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
-    background-size: 56px 56px;
+  .rotulo {
+    @apply mb-1.5 block text-sm font-semibold text-ink;
   }
 }
 
-/* Animação de entrada ao rolar (ver hook useReveal) */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
-  transition-delay: var(--delay, 0ms);
+/* Screenshot longo que rola ao passar o mouse ou focar o link */
+.tela-longa {
+  object-fit: cover;
+  object-position: 50% 0%;
+  transition: object-position 9s cubic-bezier(0.45, 0, 0.55, 1);
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+.group:hover .tela-longa,
+.group:focus-within .tela-longa {
+  object-position: 50% 100%;
+  transition-duration: 9s;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .reveal {
-    opacity: 1;
-    transform: none;
+  .tela-longa,
+  .group:hover .tela-longa {
     transition: none;
+    object-position: 50% 0%;
   }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
-
-/* scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background-color: #0d0d0f;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #2a2a2e;
-  border-radius: 10px;
-  border: 2px solid #0d0d0f;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-gold);
 }

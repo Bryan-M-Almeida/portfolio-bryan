@@ -1,99 +1,89 @@
-import { Gauge, Layers, MonitorSmartphone, Sparkles } from "lucide-react";
-import perfil from "../../Data/perfil";
-import Reveal from "../Reveal";
+import { FileText } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import perfil, { mailto } from "../../Data/perfil";
+import { useI18n } from "../../i18n/contexto";
 
-const PILARES = [
-  {
-    icone: Gauge,
-    titulo: "Performance",
-    texto:
-      "Aplicações leves e organizadas, sem excessos, com navegação fluida.",
-  },
-  {
-    icone: Layers,
-    titulo: "Escalabilidade",
-    texto: "Componentes reutilizáveis pensados para crescer e ser mantidos.",
-  },
-  {
-    icone: MonitorSmartphone,
-    titulo: "Responsividade",
-    texto: "Layouts que se adaptam a qualquer tela, priorizando quem usa.",
-  },
-  {
-    icone: Sparkles,
-    titulo: "Aprendizado contínuo",
-    texto: "Evolução constante por meio de projetos reais e desafios técnicos.",
-  },
-];
+const Sobre = () => {
+  const { t } = useI18n();
 
-const Sobre = () => (
-  <section id="sobre" className="section">
-    <div className="container-page grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-      <Reveal className="relative mx-auto w-full max-w-sm lg:sticky lg:top-28 lg:mx-0 lg:self-start">
-        <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold/25 to-transparent blur-xl" />
-        <div className="relative overflow-hidden rounded-[1.75rem] border border-line">
+  return (
+    <section id="sobre" className="bg-paper py-24 md:py-32">
+      <div className="container-page grid gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+        <div className="mx-auto w-full max-w-sm lg:mx-0">
           <img
             src={perfil.foto}
-            alt={`Foto de ${perfil.nome}`}
-            className="aspect-[4/5] w-full object-cover grayscale-[30%] transition duration-700 hover:grayscale-0"
+            alt={perfil.nome}
             loading="lazy"
             referrerPolicy="no-referrer"
+            className="aspect-[4/5] w-full rounded-3xl object-cover"
           />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/70 to-transparent p-5 pt-16">
-            <p className="font-medium text-zinc-50">{perfil.nome}</p>
-            <p className="text-sm text-zinc-400">{perfil.localizacao}</p>
+        </div>
+
+        <div>
+          <h2 className="titulo-secao">{t.sobre.titulo}</h2>
+          <div className="mt-6 max-w-[38rem] space-y-4 text-lg text-slate">
+            {t.sobre.paragrafos.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
+
+          <h3 className="mt-10 text-lg font-bold">{t.sobre.stackTitulo}</h3>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {perfil.stack.map((s) => (
+              <li key={s} className="chip">
+                {s}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-12 rounded-3xl bg-porcelain p-6 sm:p-8">
+            <h3 className="text-2xl font-bold tracking-[-0.02em]">
+              {t.sobre.recrutadoresTitulo}
+            </h3>
+            <p className="mt-2 text-slate">{t.sobre.recrutadoresTexto}</p>
+            <ul className="mt-5 space-y-2">
+              {t.sobre.disponibilidade.map((d) => (
+                <li key={d} className="flex items-center gap-3 font-medium">
+                  <span
+                    className="h-1.5 w-1.5 rounded-full bg-cobalt"
+                    aria-hidden="true"
+                  />
+                  {d}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a
+                href={mailto(t.sobre.assuntoCurriculo)}
+                className="btn btn-primario"
+              >
+                <FileText size={17} aria-hidden="true" />
+                {t.sobre.pedirCurriculo}
+              </a>
+              <a
+                href={perfil.links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-secundario"
+              >
+                <FaLinkedinIn size={16} aria-hidden="true" />
+                LinkedIn
+              </a>
+              <a
+                href={perfil.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-secundario"
+              >
+                <FaGithub size={16} aria-hidden="true" />
+                GitHub
+              </a>
+            </div>
           </div>
         </div>
-      </Reveal>
-
-      <div>
-        <Reveal>
-          <span className="eyebrow">Sobre mim</span>
-          <h2 className="section-title">
-            Transformando complexidade em{" "}
-            <span className="font-serif font-normal italic text-gold">
-              clareza técnica.
-            </span>
-          </h2>
-        </Reveal>
-
-        <Reveal
-          delay={100}
-          className="mt-6 space-y-4 text-lg leading-relaxed text-zinc-400"
-        >
-          <p>
-            Sou estudante de Engenharia de Sistemas e desenvolvedor com foco em
-            Front-End. Construo minha experiência com projetos práticos: sites
-            para clientes reais, aplicações full stack e projetos que me levam
-            para perto do hardware.
-          </p>
-          <p>
-            No dia a dia trabalho com{" "}
-            <span className="text-zinc-200">React, Next.js e TypeScript</span>,
-            sempre buscando organização, performance e clareza no código. Fora
-            da web, escrevo C, Java e Python, o que me dá uma base sólida de
-            lógica e de como as coisas funcionam por baixo dos panos.
-          </p>
-          <p>
-            Acredito que um bom desenvolvedor não é apenas quem faz funcionar,
-            mas quem entende o porquê das decisões técnicas.
-          </p>
-        </Reveal>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {PILARES.map(({ icone: Icone, titulo, texto }, i) => (
-            <Reveal key={titulo} delay={i * 80} className="card card-hover p-5">
-              <Icone size={20} className="text-gold" />
-              <h3 className="mt-4 font-medium">{titulo}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">
-                {texto}
-              </p>
-            </Reveal>
-          ))}
-        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Sobre;

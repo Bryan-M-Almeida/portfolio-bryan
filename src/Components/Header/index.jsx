@@ -1,136 +1,119 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { Menu, X } from "lucide-react";
+import { useI18n } from "../../i18n/contexto";
+import BotaoTema from "../BotaoTema";
+import Logo from "../Logo";
+import SeletorIdioma from "../SeletorIdioma";
 
-const LINKS = [
-  { id: "sobre", label: "Sobre" },
-  { id: "projetos", label: "Projetos" },
-  { id: "tecnologias", label: "Stack" },
-  { id: "experiencia", label: "Experiência" },
-  { id: "contato", label: "Contato" },
-];
-
-const Logo = () => (
-  <a
-    href="#inicio"
-    className="group flex items-center gap-2"
-    aria-label="Início"
-  >
-    <span className="grid h-9 w-9 place-items-center rounded-xl border border-gold/30 bg-gold/10 font-mono text-sm font-medium text-gold transition-colors group-hover:bg-gold group-hover:text-ink">
-      {"</>"}
-    </span>
-    <span className="text-lg font-semibold tracking-tight text-zinc-50">
-      Bryan<span className="text-gold">.</span>
-    </span>
-  </a>
-);
+const SECOES = ["projetos", "processo", "sobre", "contato"];
 
 const Header = () => {
+  const { t } = useI18n();
   const [aberto, setAberto] = useState(false);
   const [rolou, setRolou] = useState(false);
-  const [ativo, setAtivo] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setRolou(window.scrollY > 24);
+    const onScroll = () => setRolou(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Destaca no menu a seção visível
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => e.isIntersecting && setAtivo(e.target.id));
-      },
-      { rootMargin: "-45% 0px -50% 0px" },
-    );
-    LINKS.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
-
   useEffect(() => {
     document.body.style.overflow = aberto ? "hidden" : "";
+    const onKey = (e) => e.key === "Escape" && setAberto(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [aberto]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-      <div
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-4 py-2.5 transition-all duration-300 sm:px-5 ${
-          rolou || aberto
-            ? "border-line bg-ink/75 shadow-2xl shadow-black/40 backdrop-blur-xl"
-            : "border-transparent"
-        }`}
-      >
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
+        rolou || aberto
+          ? "bg-porcelain/85 shadow-[0_1px_0_var(--color-line)] backdrop-blur-lg"
+          : ""
+      }`}
+    >
+      <div className="container-page flex h-[72px] items-center justify-between gap-6">
         <Logo />
 
-        <nav
-          className="hidden items-center gap-1 md:flex"
-          aria-label="Principal"
-        >
-          {LINKS.map(({ id, label }) => (
+        <nav className="hidden items-center gap-8 lg:flex">
+          {SECOES.map((id) => (
             <a
               key={id}
               href={`#${id}`}
-              className={`rounded-full px-4 py-2 text-sm transition-colors ${
-                ativo === id
-                  ? "bg-white/[0.06] text-zinc-50"
-                  : "text-zinc-400 hover:text-zinc-50"
-              }`}
+              className="text-[15px] font-medium text-slate transition-colors hover:text-ink"
             >
-              {label}
+              {t.nav[id]}
             </a>
           ))}
         </nav>
 
-        <a
-          href="#contato"
-          className="btn btn-primary hidden !px-5 !py-2 md:inline-flex"
-        >
-          Vamos conversar <ArrowUpRight size={16} />
-        </a>
-
-        <button
-          type="button"
-          className="grid h-10 w-10 place-items-center rounded-xl text-zinc-200 md:hidden"
-          onClick={() => setAberto(!aberto)}
-          aria-label={aberto ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={aberto}
-        >
-          {aberto ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {/* Menu mobile */}
-      <div
-        className={`mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border border-line bg-ink/95 backdrop-blur-xl transition-all duration-300 md:hidden ${
-          aberto
-            ? "max-h-[480px] opacity-100"
-            : "pointer-events-none max-h-0 opacity-0"
-        }`}
-      >
-        <nav className="flex flex-col p-3" aria-label="Menu mobile">
-          {LINKS.map(({ id, label }) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              onClick={() => setAberto(false)}
-              className="rounded-xl px-4 py-3 text-base text-zinc-200 hover:bg-white/5"
-            >
-              {label}
-            </a>
-          ))}
-          <a
-            href="#contato"
-            onClick={() => setAberto(false)}
-            className="btn btn-primary mt-2"
-          >
-            Vamos conversar <ArrowUpRight size={16} />
+        <div className="hidden items-center gap-3 lg:flex">
+          <SeletorIdioma id="header" />
+          <BotaoTema />
+          <a href="#contato" className="btn btn-primario !px-5 !py-2.5">
+            {t.nav.cta}
           </a>
-        </nav>
+        </div>
+
+        <div className="flex items-center gap-1.5 lg:hidden">
+          <BotaoTema />
+          <button
+            type="button"
+            onClick={() => setAberto(!aberto)}
+            aria-expanded={aberto}
+            aria-controls="menu-mobile"
+            aria-label={aberto ? t.nav.fecharMenu : t.nav.abrirMenu}
+            className="grid h-11 w-11 place-items-center rounded-full text-ink hover:bg-paper"
+          >
+            {aberto ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
+
+      <AnimatePresence>
+        {aberto && (
+          <motion.nav
+            id="menu-mobile"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-line bg-porcelain lg:hidden"
+          >
+            <div className="container-page flex flex-col py-4">
+              {SECOES.map((id, i) => (
+                <motion.a
+                  key={id}
+                  href={`#${id}`}
+                  onClick={() => setAberto(false)}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 + i * 0.04 }}
+                  className="font-display border-b border-line py-4 text-2xl font-semibold"
+                >
+                  {t.nav[id]}
+                </motion.a>
+              ))}
+              <div className="mt-6 flex items-center justify-between">
+                <span className="text-sm font-medium text-slate">
+                  {t.nav.idioma}
+                </span>
+                <SeletorIdioma id="header-mobile" />
+              </div>
+              <a
+                href="#contato"
+                onClick={() => setAberto(false)}
+                className="btn btn-primario mt-6"
+              >
+                {t.nav.cta}
+              </a>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

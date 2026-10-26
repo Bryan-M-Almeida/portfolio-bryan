@@ -1,16 +1,9 @@
 import { useState } from "react";
-import { ChevronDown, Copy, Check, Mail, MapPin, Send } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { Check, ChevronDown, Copy, Send } from "lucide-react";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import perfil from "../../Data/perfil";
-import Reveal from "../Reveal";
-import SectionHeader from "../SectionHeader";
-
-const TIPOS_PROJETO = [
-  "Landing page",
-  "Site institucional",
-  "Aplicação web",
-  "Outro",
-];
+import perfil, { mailto } from "../../Data/perfil";
+import { useI18n } from "../../i18n/contexto";
 
 const REDES = [
   { href: perfil.links.linkedin, icone: FaLinkedinIn, label: "LinkedIn" },
@@ -19,10 +12,12 @@ const REDES = [
 ];
 
 const Contato = () => {
-  const [modo, setModo] = useState("mensagem");
+  const { t } = useI18n();
+  const c = t.contato;
+  const [modo, setModo] = useState("orcamento");
   const [copiado, setCopiado] = useState(false);
 
-  const copiarEmail = async () => {
+  const copiar = async () => {
     try {
       await navigator.clipboard.writeText(perfil.email);
       setCopiado(true);
@@ -32,117 +27,107 @@ const Contato = () => {
     }
   };
 
-  // Sem backend: monta o e-mail e abre o cliente de e-mail do visitante.
+  // Sem backend: monta o e-mail e abre o aplicativo de e-mail do visitante.
   const enviar = (e) => {
     e.preventDefault();
-    const dados = Object.fromEntries(new FormData(e.currentTarget));
-    const assunto =
-      modo === "orcamento"
-        ? `Orçamento: ${dados.tipo} | ${dados.nome}`
-        : `Contato pelo portfólio | ${dados.nome}`;
+    const d = Object.fromEntries(new FormData(e.currentTarget));
+    const orcamento = modo === "orcamento";
+    const assunto = orcamento
+      ? c.assuntoOrcamento(d.tipo, d.nome)
+      : c.assuntoMensagem(d.nome);
     const corpo = [
-      `Nome: ${dados.nome}`,
-      `E-mail: ${dados.email}`,
-      modo === "orcamento" && `Tipo de projeto: ${dados.tipo}`,
+      `${c.rotulos.nome}: ${d.nome}`,
+      `${c.rotulos.email}: ${d.email}`,
+      orcamento && `${c.rotulos.tipo}: ${d.tipo}`,
       "",
-      dados.mensagem,
+      d.mensagem,
     ]
       .filter((l) => l !== false)
       .join("\n");
-
-    window.location.href = `mailto:${perfil.email}?subject=${encodeURIComponent(
-      assunto,
-    )}&body=${encodeURIComponent(corpo)}`;
+    window.location.href = mailto(assunto, corpo);
   };
 
   return (
-    <section id="contato" className="section overflow-hidden">
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-gold/[0.07] blur-[120px]" />
-      <div className="container-page relative grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr] [&>*]:min-w-0">
+    <section id="contato" className="py-24 md:py-32">
+      <div className="container-page grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20 [&>*]:min-w-0">
         <div>
-          <SectionHeader
-            eyebrow="Contato"
-            title="Vamos construir algo juntos?"
-            subtitle="Tem um projeto em mente, uma vaga ou só quer trocar uma ideia? Me mande uma mensagem."
-          />
+          <h2 className="titulo-secao">{c.titulo}</h2>
+          <p className="mt-5 max-w-md text-lg text-slate">{c.subtitulo}</p>
 
-          <Reveal delay={100} className="mt-10 space-y-3">
-            <div className="card flex items-center gap-4 p-4">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold/10 text-gold">
-                <Mail size={20} />
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="text-xs text-zinc-500">E-mail</p>
-                <a
-                  href={`mailto:${perfil.email}`}
-                  className="block truncate text-zinc-100 hover:text-gold"
+          <div className="mt-10 flex max-w-md items-center gap-2 rounded-2xl bg-paper p-2 pl-5 ring-1 ring-line">
+            <a
+              href={`mailto:${perfil.email}`}
+              className="min-w-0 flex-1 truncate font-medium hover:text-cobalt"
+            >
+              {perfil.email}
+            </a>
+            <button
+              type="button"
+              onClick={copiar}
+              aria-label={copiado ? c.copiado : c.copiar}
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-slate hover:bg-porcelain hover:text-ink"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={copiado ? "ok" : "copiar"}
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.5, opacity: 0 }}
+                  transition={{ duration: 0.15 }}
                 >
-                  {perfil.email}
-                </a>
-              </div>
-              <button
-                type="button"
-                onClick={copiarEmail}
-                className="grid h-9 w-9 place-items-center rounded-lg text-zinc-400 hover:bg-white/5 hover:text-zinc-100"
-                aria-label="Copiar e-mail"
+                  {copiado ? (
+                    <Check size={17} className="text-cobalt" />
+                  ) : (
+                    <Copy size={17} />
+                  )}
+                </motion.span>
+              </AnimatePresence>
+            </button>
+          </div>
+          <p aria-live="polite" className="sr-only">
+            {copiado ? c.copiado : ""}
+          </p>
+
+          <div className="mt-6 flex gap-2">
+            {REDES.map(({ href, icone: Icone, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                className="grid h-12 w-12 place-items-center rounded-full bg-paper text-ink ring-1 ring-line transition-colors hover:bg-ink hover:text-paper"
               >
-                {copiado ? (
-                  <Check size={16} className="text-emerald-400" />
-                ) : (
-                  <Copy size={16} />
-                )}
-              </button>
-            </div>
-
-            <div className="card flex items-center gap-4 p-4">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold/10 text-gold">
-                <MapPin size={20} />
-              </span>
-              <div>
-                <p className="text-xs text-zinc-500">Localização</p>
-                <p className="text-zinc-100">{perfil.localizacao}</p>
-              </div>
-            </div>
-
-            <div className="flex gap-3 pt-3">
-              {REDES.map(({ href, icone: Icone, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={label}
-                  className="card card-hover grid h-12 w-12 place-items-center text-zinc-300 hover:text-gold"
-                >
-                  <Icone size={19} />
-                </a>
-              ))}
-            </div>
-          </Reveal>
+                <Icone size={18} />
+              </a>
+            ))}
+          </div>
         </div>
 
-        <Reveal delay={150} id="orcamento" className="card p-6 sm:p-8">
+        <div className="rounded-3xl bg-paper p-6 ring-1 ring-line sm:p-8">
           <div
-            className="grid grid-cols-2 gap-1 rounded-xl border border-line bg-ink/60 p-1"
             role="tablist"
+            className="grid grid-cols-2 rounded-full bg-porcelain p-1"
           >
-            {[
-              ["mensagem", "Mensagem"],
-              ["orcamento", "Pedir orçamento"],
-            ].map(([id, label]) => (
+            {["orcamento", "mensagem"].map((id) => (
               <button
                 key={id}
                 type="button"
                 role="tab"
                 aria-selected={modo === id}
                 onClick={() => setModo(id)}
-                className={`rounded-lg py-2.5 text-sm font-medium transition-colors ${
-                  modo === id
-                    ? "bg-white/[0.08] text-zinc-50"
-                    : "text-zinc-500 hover:text-zinc-200"
+                className={`relative rounded-full py-2.5 text-[15px] font-semibold transition-colors ${
+                  modo === id ? "text-ink" : "text-slate hover:text-ink"
                 }`}
               >
-                {label}
+                {modo === id && (
+                  <motion.span
+                    layoutId="aba-contato"
+                    className="absolute inset-0 rounded-full bg-paper shadow-sm ring-1 ring-line"
+                    transition={{ type: "spring", stiffness: 420, damping: 36 }}
+                  />
+                )}
+                <span className="relative">{c.abas[id]}</span>
               </button>
             ))}
           </div>
@@ -150,91 +135,98 @@ const Contato = () => {
           <form onSubmit={enviar} className="mt-7 space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label htmlFor="nome" className="label">
-                  Nome
+                <label htmlFor="nome" className="rotulo">
+                  {c.nome}
                 </label>
                 <input
                   required
                   id="nome"
                   name="nome"
-                  className="field"
-                  placeholder="Seu nome"
                   autoComplete="name"
+                  placeholder={c.placeholderNome}
+                  className="campo"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="label">
-                  E-mail
+                <label htmlFor="email" className="rotulo">
+                  {c.email}
                 </label>
                 <input
                   required
                   type="email"
                   id="email"
                   name="email"
-                  className="field"
-                  placeholder="voce@email.com"
                   autoComplete="email"
+                  placeholder={c.placeholderEmail}
+                  className="campo"
                 />
               </div>
             </div>
 
-            {modo === "orcamento" && (
-              <div>
-                <label htmlFor="tipo" className="label">
-                  Tipo de projeto
-                </label>
-                <div className="relative">
-                  <select
-                    required
-                    id="tipo"
-                    name="tipo"
-                    defaultValue=""
-                    className="field appearance-none pr-10"
-                  >
-                    <option value="" disabled className="bg-ink">
-                      Selecione uma opção
-                    </option>
-                    {TIPOS_PROJETO.map((t) => (
-                      <option key={t} value={t} className="bg-ink">
-                        {t}
+            <AnimatePresence initial={false}>
+              {modo === "orcamento" && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  className="overflow-hidden"
+                >
+                  <label htmlFor="tipo" className="rotulo">
+                    {c.tipo}
+                  </label>
+                  <div className="relative">
+                    <select
+                      required
+                      id="tipo"
+                      name="tipo"
+                      defaultValue=""
+                      className="campo appearance-none pr-11"
+                    >
+                      <option value="" disabled>
+                        {c.selecione}
                       </option>
-                    ))}
-                  </select>
-                  <ChevronDown
-                    size={18}
-                    className="pointer-events-none absolute top-1/2 right-4 -translate-y-1/2 text-gold"
-                  />
-                </div>
-              </div>
-            )}
+                      {c.tipos.map((tipo) => (
+                        <option key={tipo} value={tipo}>
+                          {tipo}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown
+                      size={18}
+                      aria-hidden="true"
+                      className="pointer-events-none absolute top-1/2 right-4 -translate-y-1/2 text-slate"
+                    />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             <div>
-              <label htmlFor="mensagem" className="label">
-                {modo === "orcamento" ? "Conte sobre o projeto" : "Mensagem"}
+              <label htmlFor="mensagem" className="rotulo">
+                {modo === "orcamento" ? c.mensagemOrcamento : c.mensagem}
               </label>
               <textarea
                 required
                 id="mensagem"
                 name="mensagem"
                 rows={5}
-                className="field resize-none"
                 placeholder={
                   modo === "orcamento"
-                    ? "Objetivo, prazo, referências..."
-                    : "Como posso ajudar?"
+                    ? c.placeholderOrcamento
+                    : c.placeholderMensagem
                 }
+                className="campo resize-none"
               />
             </div>
 
-            <button type="submit" className="btn btn-primary w-full !py-3.5">
-              {modo === "orcamento" ? "Solicitar orçamento" : "Enviar mensagem"}
-              <Send size={16} />
+            <button type="submit" className="btn btn-primario w-full !py-3.5">
+              {modo === "orcamento" ? c.enviarOrcamento : c.enviarMensagem}
+              <Send size={16} aria-hidden="true" />
             </button>
-            <p className="text-center text-xs text-zinc-600">
-              O envio abre o seu aplicativo de e-mail com a mensagem pronta.
-            </p>
+            <p className="text-center text-sm text-slate">{c.nota}</p>
           </form>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
