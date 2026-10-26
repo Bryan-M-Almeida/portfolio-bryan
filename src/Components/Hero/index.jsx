@@ -1,18 +1,39 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { Check } from "lucide-react";
 import { sitesNoAr } from "../../Data/projetos";
 import { useI18n } from "../../i18n/contexto";
 import PilhaSites from "./PilhaSites";
 
-const ease = [0.22, 1, 0.36, 1];
+const ease = [0.16, 1, 0.3, 1];
 
 const Hero = () => {
   const { t, idioma } = useI18n();
+  const secao = useRef(null);
+  const reduzir = useReducedMotion();
+
+  // Parallax ao sair do topo: texto sobe e esmaece, a pilha de sites desce mais devagar
+  const { scrollYProgress } = useScroll({
+    target: secao,
+    offset: ["start start", "end start"],
+  });
+  const yTexto = useTransform(scrollYProgress, [0, 1], [0, reduzir ? 0 : -90]);
+  const opacidade = useTransform(
+    scrollYProgress,
+    [0, 0.8],
+    [1, reduzir ? 1 : 0.15],
+  );
+  const yPilha = useTransform(scrollYProgress, [0, 1], [0, reduzir ? 0 : 70]);
 
   return (
-    <section id="inicio" className="pt-28 pb-20 md:pt-36 md:pb-28">
+    <section ref={secao} id="inicio" className="pt-28 pb-20 md:pt-36 md:pb-28">
       <div className="container-page grid items-center gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
-        <div>
+        <motion.div style={{ y: yTexto, opacity: opacidade }}>
           {/* key no idioma: a frase entra de novo ao trocar a língua */}
           <h1
             key={idioma}
@@ -24,7 +45,7 @@ const Hero = () => {
                   className="block"
                   initial={{ y: "105%" }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1 + i * 0.09, ease }}
+                  transition={{ duration: 1.1, delay: 0.1 + i * 0.1, ease }}
                 >
                   {linha}
                 </motion.span>
@@ -33,18 +54,18 @@ const Hero = () => {
           </h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45, ease }}
+            transition={{ duration: 1, delay: 0.45, ease }}
             className="mt-7 max-w-[34rem] text-lg text-slate"
           >
             {t.hero.texto}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55, ease }}
+            transition={{ duration: 1, delay: 0.58, ease }}
             className="mt-9 flex flex-wrap gap-3"
           >
             <a href="#contato" className="btn btn-primario">
@@ -64,15 +85,16 @@ const Hero = () => {
             <Check size={17} className="text-cobalt" aria-hidden="true" />
             {t.hero.provaSocial(sitesNoAr.length)}
           </motion.p>
-        </div>
+        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40, rotate: -1.5 }}
-          animate={{ opacity: 1, y: 0, rotate: 0 }}
-          transition={{ duration: 1, delay: 0.35, ease }}
-          className="pt-6"
-        >
-          <PilhaSites />
+        <motion.div style={{ y: yPilha }} className="pt-6">
+          <motion.div
+            initial={{ opacity: 0, y: 48, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1.3, delay: 0.3, ease }}
+          >
+            <PilhaSites />
+          </motion.div>
         </motion.div>
       </div>
     </section>

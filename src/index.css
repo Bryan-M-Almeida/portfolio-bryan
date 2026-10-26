@@ -124,17 +124,17 @@
   }
 }
 
-/* Screenshot longo que rola ao passar o mouse ou focar o link */
+/* Screenshot longo: percorre a página ao passar o cursor e volta suavemente ao sair */
 .tela-longa {
   object-fit: cover;
   object-position: 50% 0%;
-  transition: object-position 9s cubic-bezier(0.45, 0, 0.55, 1);
+  transition: object-position 1.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .group:hover .tela-longa,
 .group:focus-within .tela-longa {
   object-position: 50% 100%;
-  transition-duration: 9s;
+  transition: object-position 7s cubic-bezier(0.37, 0, 0.63, 1) 0.25s;
 }
 
 @media (prefers-reduced-motion: reduce) {

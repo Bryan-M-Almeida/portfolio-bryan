@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
 import { useI18n } from "../../i18n/contexto";
+import { travarRolagem } from "../../utils/rolagem";
 
 const PrivacyModal = ({ aberto, onClose }) => {
   const { t } = useI18n();
@@ -11,11 +12,11 @@ const PrivacyModal = ({ aberto, onClose }) => {
     if (!aberto) return;
     const onKey = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
+    travarRolagem(true);
     fecharRef.current?.focus();
     return () => {
       window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      travarRolagem(false);
     };
   }, [aberto, onClose]);
 

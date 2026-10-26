@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useI18n } from "../../i18n/contexto";
+import { travarRolagem } from "../../utils/rolagem";
 import BotaoTema from "../BotaoTema";
 import Logo from "../Logo";
 import SeletorIdioma from "../SeletorIdioma";
@@ -21,7 +22,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = aberto ? "hidden" : "";
+    travarRolagem(aberto);
     const onKey = (e) => e.key === "Escape" && setAberto(false);
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);

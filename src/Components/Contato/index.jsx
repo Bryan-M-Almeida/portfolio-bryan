@@ -4,6 +4,7 @@ import { Check, ChevronDown, Copy, Send } from "lucide-react";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import perfil, { mailto } from "../../Data/perfil";
 import { useI18n } from "../../i18n/contexto";
+import Revelar from "../Revelar";
 
 const REDES = [
   { href: perfil.links.linkedin, icone: FaLinkedinIn, label: "LinkedIn" },
@@ -50,7 +51,7 @@ const Contato = () => {
   return (
     <section id="contato" className="py-24 md:py-32">
       <div className="container-page grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20 [&>*]:min-w-0">
-        <div>
+        <Revelar>
           <h2 className="titulo-secao">{c.titulo}</h2>
           <p className="mt-5 max-w-md text-lg text-slate">{c.subtitulo}</p>
 
@@ -102,9 +103,12 @@ const Contato = () => {
               </a>
             ))}
           </div>
-        </div>
+        </Revelar>
 
-        <div className="rounded-3xl bg-paper p-6 ring-1 ring-line sm:p-8">
+        <Revelar
+          atraso={0.12}
+          className="rounded-3xl bg-paper p-6 ring-1 ring-line sm:p-8"
+        >
           <div
             role="tablist"
             className="grid grid-cols-2 rounded-full bg-porcelain p-1"
@@ -226,7 +230,7 @@ const Contato = () => {
             </button>
             <p className="text-center text-sm text-slate">{c.nota}</p>
           </form>
-        </div>
+        </Revelar>
       </div>
     </section>
   );

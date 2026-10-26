@@ -1,23 +1,26 @@
 import { motion } from "motion/react";
 import { ArrowRight, Mail } from "lucide-react";
 import perfil from "../../Data/perfil";
+import useParallax from "../../hooks/useParallax";
 import { useI18n } from "../../i18n/contexto";
 
 const CtaFaixa = () => {
   const { t } = useI18n();
+  const { ref: refFaixa, y: yTextura } = useParallax(-70);
 
   return (
-    <section className="py-8">
+    <section ref={refFaixa} className="py-8">
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="relative overflow-hidden rounded-[2rem] bg-paper px-6 py-14 ring-1 ring-line sm:px-14 sm:py-16"
         >
           {/* Monograma ampliado como textura */}
-          <svg
+          <motion.svg
+            style={{ y: yTextura }}
             viewBox="0 0 32 32"
             aria-hidden="true"
             className="pointer-events-none absolute -right-10 -bottom-16 h-80 w-80 text-ink opacity-[0.05]"
@@ -31,7 +34,7 @@ const CtaFaixa = () => {
               strokeLinejoin="round"
             />
             <circle cx="24.6" cy="22.3" r="1.9" fill="currentColor" />
-          </svg>
+          </motion.svg>
 
           <div className="relative max-w-2xl">
             <h2 className="text-[clamp(2rem,4.2vw,3.25rem)] leading-[1.04] font-bold tracking-[-0.035em]">

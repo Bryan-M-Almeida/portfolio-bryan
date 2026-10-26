@@ -1,5 +1,4 @@
 import { ArrowUpRight, ChartLine, Cpu, Gamepad2, Lock } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
 import { mailto } from "../../Data/perfil";
 import { useI18n } from "../../i18n/contexto";
 
@@ -31,7 +30,7 @@ const CartaoDesenvolvimento = ({ projeto }) => {
   const { t, idioma } = useI18n();
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-paper ring-1 ring-line transition-shadow duration-300 hover:shadow-[0_24px_50px_-30px_rgb(var(--c-sombra))]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-paper ring-1 ring-line transition-[box-shadow,transform] duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_24px_50px_-30px_rgb(var(--c-sombra))]">
       {projeto.imagem ? (
         <div className="aspect-[16/10] overflow-hidden">
           <img
@@ -39,7 +38,8 @@ const CartaoDesenvolvimento = ({ projeto }) => {
             alt={projeto.nome}
             loading="lazy"
             referrerPolicy="no-referrer"
-            className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            draggable="false"
+            className="h-full w-full object-cover object-top transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
           />
         </div>
       ) : (
@@ -72,17 +72,6 @@ const CartaoDesenvolvimento = ({ projeto }) => {
             >
               {t.projetos.visitar}
               <ArrowUpRight size={15} aria-hidden="true" />
-            </a>
-          )}
-          {projeto.codigo && (
-            <a
-              href={projeto.codigo}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-secundario !px-4 !py-2 text-sm"
-            >
-              <FaGithub size={15} aria-hidden="true" />
-              {t.projetos.codigo}
             </a>
           )}
           {projeto.privado && !projeto.site && (

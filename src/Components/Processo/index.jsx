@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useI18n } from "../../i18n/contexto";
+import Revelar from "../Revelar";
 
 // As etapas são uma sequência real, por isso numeradas.
 const Processo = () => {
@@ -8,10 +9,10 @@ const Processo = () => {
   return (
     <section id="processo" className="py-24 md:py-32">
       <div className="container-page">
-        <div className="max-w-xl">
+        <Revelar className="max-w-xl">
           <h2 className="titulo-secao">{t.processo.titulo}</h2>
           <p className="mt-4 text-lg text-slate">{t.processo.subtitulo}</p>
-        </div>
+        </Revelar>
 
         <ol className="relative mt-16 grid gap-10 md:grid-cols-4 md:gap-8">
           <motion.span

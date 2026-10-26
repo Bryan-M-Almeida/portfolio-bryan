@@ -35,13 +35,14 @@ const textos = {
     projetos: {
       titulo: "Projetos",
       subtitulo:
-        "Uma seleção de sites em produção para clientes e de produtos autorais. Passe o cursor sobre um projeto para percorrer a página.",
+        "Uma seleção de sites em produção para clientes e de produtos autorais. Arraste para navegar e passe o cursor sobre um site para percorrer a página.",
       abas: {
         publicados: "Em produção",
         desenvolvimento: "Em desenvolvimento",
       },
       visitar: "Visitar site",
-      codigo: "Código-fonte",
+      anterior: "Projeto anterior",
+      proximo: "Próximo projeto",
       pedirAcesso: "Solicitar demonstração",
       privado: "Acesso restrito",
       privadoNota:
@@ -54,6 +55,7 @@ const textos = {
       status: {
         cliente: "Cliente",
         modelo: "Modelo para restaurantes",
+        vendas: "Página de vendas",
         saas: "SaaS",
         hackathon: "Projeto de hackathon",
         jogo: "Jogo em Unity",
@@ -194,10 +196,11 @@ const textos = {
     projetos: {
       titulo: "Work",
       subtitulo:
-        "A selection of live client websites and original products. Hover over a project to scroll through the page.",
+        "A selection of live client websites and original products. Drag to browse and hover over a site to scroll through the page.",
       abas: { publicados: "Live", desenvolvimento: "In development" },
       visitar: "Visit site",
-      codigo: "Source code",
+      anterior: "Previous project",
+      proximo: "Next project",
       pedirAcesso: "Request a demo",
       privado: "Restricted access",
       privadoNota:
@@ -210,6 +213,7 @@ const textos = {
       status: {
         cliente: "Client",
         modelo: "Restaurant template",
+        vendas: "Sales page",
         saas: "SaaS",
         hackathon: "Hackathon project",
         jogo: "Unity game",
@@ -349,10 +353,11 @@ const textos = {
     projetos: {
       titulo: "Proyectos",
       subtitulo:
-        "Una selección de sitios en producción para clientes y de productos propios. Pase el cursor sobre un proyecto para recorrer la página.",
+        "Una selección de sitios en producción para clientes y de productos propios. Arrastre para navegar y pase el cursor sobre un sitio para recorrer la página.",
       abas: { publicados: "En producción", desenvolvimento: "En desarrollo" },
       visitar: "Visitar sitio",
-      codigo: "Código fuente",
+      anterior: "Proyecto anterior",
+      proximo: "Siguiente proyecto",
       pedirAcesso: "Solicitar demostración",
       privado: "Acceso restringido",
       privadoNota:
@@ -365,6 +370,7 @@ const textos = {
       status: {
         cliente: "Cliente",
         modelo: "Plantilla para restaurantes",
+        vendas: "Página de ventas",
         saas: "SaaS",
         hackathon: "Proyecto de hackathon",
         jogo: "Juego en Unity",

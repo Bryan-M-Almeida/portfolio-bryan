@@ -1,25 +1,36 @@
+import { motion } from "motion/react";
 import { FileText } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import perfil, { mailto } from "../../Data/perfil";
+import useParallax from "../../hooks/useParallax";
 import { useI18n } from "../../i18n/contexto";
+import Revelar from "../Revelar";
 
 const Sobre = () => {
   const { t } = useI18n();
+  const { ref: refFoto, y: yFoto } = useParallax(36);
 
   return (
     <section id="sobre" className="bg-paper py-24 md:py-32">
       <div className="container-page grid gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-        <div className="mx-auto w-full max-w-sm lg:mx-0">
-          <img
-            src={perfil.foto}
-            alt={perfil.nome}
-            loading="lazy"
-            referrerPolicy="no-referrer"
-            className="aspect-[4/5] w-full rounded-3xl object-cover"
-          />
+        <div className="mx-auto w-full max-w-sm lg:sticky lg:top-28 lg:mx-0 lg:self-start">
+          {/* Parallax: a foto desliza dentro da moldura enquanto a seção passa */}
+          <div
+            ref={refFoto}
+            className="aspect-[4/5] overflow-hidden rounded-3xl bg-porcelain"
+          >
+            <motion.img
+              src={perfil.foto}
+              alt={perfil.nome}
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              style={{ y: yFoto, scale: 1.18 }}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
 
-        <div>
+        <Revelar>
           <h2 className="titulo-secao">{t.sobre.titulo}</h2>
           <div className="mt-6 max-w-[38rem] space-y-4 text-lg text-slate">
             {t.sobre.paragrafos.map((p) => (
@@ -80,7 +91,7 @@ const Sobre = () => {
               </a>
             </div>
           </div>
-        </div>
+        </Revelar>
       </div>
     </section>
   );

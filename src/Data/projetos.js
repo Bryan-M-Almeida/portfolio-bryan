@@ -148,6 +148,109 @@ const projetos = [
     stack: ["React", "Tailwind CSS"],
   },
   {
+    id: "sea",
+    nome: "SEA Treinamentos",
+    aba: "publicados",
+    status: "cliente",
+    ano: 2025,
+    imagem: "/projetos/sea.jpg",
+    imagemLonga: "/projetos/sea-full.jpg",
+    site: "https://portfolio-sea-treinamentos.vercel.app",
+    resumo: {
+      pt: "Landing page para uma escola de cursos técnicos, supletivos e certificações, voltada à captação de alunos.",
+      en: "Landing page for a school offering technical courses, adult education and certifications, built to attract new students.",
+      es: "Landing page para una escuela de cursos técnicos, educación para adultos y certificaciones, orientada a captar alumnos.",
+    },
+    entregas: {
+      pt: [
+        "Vitrine de cursos com chamadas diretas para matrícula",
+        "Depoimentos, perguntas frequentes e galeria de fotos",
+        "Formulário e atendimento integrados ao WhatsApp",
+        "Layout responsivo otimizado para conversão",
+      ],
+      en: [
+        "Course showcase with direct enrollment calls to action",
+        "Testimonials, FAQ and photo gallery",
+        "Form and support integrated with WhatsApp",
+        "Responsive layout optimized for conversion",
+      ],
+      es: [
+        "Vitrina de cursos con llamados directos a la inscripción",
+        "Testimonios, preguntas frecuentes y galería de fotos",
+        "Formulario y atención integrados con WhatsApp",
+        "Diseño responsivo optimizado para la conversión",
+      ],
+    },
+    stack: ["HTML5", "Tailwind CSS", "JavaScript"],
+  },
+  {
+    id: "garcia",
+    nome: "Garcia Soluções Elétricas",
+    aba: "publicados",
+    status: "cliente",
+    ano: 2025,
+    local: "Macaé, RJ",
+    imagem: "/projetos/garcia.jpg",
+    imagemLonga: "/projetos/garcia-full.jpg",
+    site: "https://landing-garcia-solucoes.vercel.app",
+    resumo: {
+      pt: "Site institucional para uma empresa de soluções elétricas que atende Macaé, Rio das Ostras e região.",
+      en: "Company website for an electrical services business serving Macaé, Rio das Ostras and the surrounding area.",
+      es: "Sitio institucional para una empresa de soluciones eléctricas que atiende Macaé, Rio das Ostras y la región.",
+    },
+    entregas: {
+      pt: [
+        "Portfólio de obras em carrossel e apresentação dos serviços",
+        "Conteúdo estruturado para transmitir credibilidade",
+        "Contato pelo WhatsApp e mapa de localização",
+      ],
+      en: [
+        "Project portfolio carousel and service overview",
+        "Content structured to convey credibility",
+        "WhatsApp contact and location map",
+      ],
+      es: [
+        "Portafolio de obras en carrusel y presentación de servicios",
+        "Contenido estructurado para transmitir credibilidad",
+        "Contacto por WhatsApp y mapa de ubicación",
+      ],
+    },
+    stack: ["HTML5", "CSS3", "JavaScript"],
+  },
+  {
+    id: "legado",
+    nome: "Legado",
+    aba: "publicados",
+    status: "vendas",
+    ano: 2025,
+    imagem: "/projetos/legado.jpg",
+    imagemLonga: "/projetos/legado-full.jpg",
+    site: "http://www.meulegadomasculino.com.br/",
+    resumo: {
+      pt: "Página de vendas para um e-book de educação financeira, com domínio próprio.",
+      en: "Sales page for a personal finance e-book, on its own domain.",
+      es: "Página de ventas para un e-book de educación financiera, con dominio propio.",
+    },
+    entregas: {
+      pt: [
+        "Estrutura de página de vendas com chamadas para compra",
+        "Seções de conteúdo do livro e depoimentos",
+        "Layout responsivo e carregamento rápido",
+      ],
+      en: [
+        "Sales page structure with purchase calls to action",
+        "Book content sections and testimonials",
+        "Responsive layout and fast loading",
+      ],
+      es: [
+        "Estructura de página de ventas con llamados a la compra",
+        "Secciones de contenido del libro y testimonios",
+        "Diseño responsivo y carga rápida",
+      ],
+    },
+    stack: ["HTML5", "CSS3", "JavaScript"],
+  },
+  {
     id: "hikari-sushi",
     nome: "Hikari Sushi",
     aba: "publicados",
@@ -186,7 +289,7 @@ const projetos = [
     nome: "FinTrack",
     aba: "desenvolvimento",
     status: "saas",
-    codigo: "https://github.com/Bryan-M-Almeida/FinTrack",
+    privado: true,
     resumo: {
       pt: "Plataforma de gestão financeira pessoal com controle de contas, agendamentos, simulações e painel analítico. Em fase inicial: a navegação está pronta e os módulos estão em construção.",
       en: "Personal finance platform with account tracking, scheduled payments, simulations and an analytics dashboard. Early stage: navigation is done and the modules are under construction.",
@@ -201,7 +304,6 @@ const projetos = [
     status: "hackathon",
     imagem: "/projetos/nexus.jpg",
     site: "https://nexus-landing-dun.vercel.app",
-    codigo: "https://github.com/Bryan-M-Almeida/nexusAI",
     resumo: {
       pt: "Assistente de IA pessoal desenvolvido para o AMD Developer Hackathon: ACT III (lablab.ai). Funciona inteiramente no computador do usuário, com memória persistente, agenda, tarefas e interface adaptável, sem nuvem nem chaves de API.",
       en: "Personal AI assistant built for the AMD Developer Hackathon: ACT III (lablab.ai). It runs entirely on the user's computer, with persistent memory, calendar, tasks and an adaptive interface, with no cloud or API keys.",
@@ -227,7 +329,7 @@ const projetos = [
     nome: "NEXUS.OS",
     aba: "desenvolvimento",
     status: "sistema",
-    codigo: "https://github.com/Bryan-M-Almeida/NexusOS",
+    privado: true,
     resumo: {
       pt: "Sistema operacional bootável escrito do zero em Assembly e C, com sistema de arquivos próprio, shell e interface em três idiomas.",
       en: "Bootable operating system written from scratch in Assembly and C, with its own file system, shell and a three-language interface.",
@@ -250,53 +352,9 @@ const projetos = [
   },
 ];
 
-// Outros sites de clientes em produção, exibidos em grade compacta.
-export const outrosClientes = [
-  {
-    id: "sea",
-    nome: "SEA Treinamentos",
-    tipo: {
-      pt: "Landing page de cursos profissionalizantes",
-      en: "Landing page for vocational courses",
-      es: "Landing page de cursos profesionales",
-    },
-    ano: 2025,
-    imagem: "/projetos/sea.jpg",
-    imagemLonga: "/projetos/sea-full.jpg",
-    site: "https://portfolio-sea-treinamentos.vercel.app",
-  },
-  {
-    id: "garcia",
-    nome: "Garcia Soluções Elétricas",
-    tipo: {
-      pt: "Site institucional de serviços elétricos",
-      en: "Electrical services company website",
-      es: "Sitio institucional de servicios eléctricos",
-    },
-    ano: 2025,
-    imagem: "/projetos/garcia.jpg",
-    imagemLonga: "/projetos/garcia-full.jpg",
-    site: "https://landing-garcia-solucoes.vercel.app",
-  },
-  {
-    id: "legado",
-    nome: "Legado",
-    tipo: {
-      pt: "Página de vendas de e-book",
-      en: "E-book sales page",
-      es: "Página de ventas de e-book",
-    },
-    ano: 2025,
-    imagem: "/projetos/legado.jpg",
-    imagemLonga: "/projetos/legado-full.jpg",
-    site: "http://www.meulegadomasculino.com.br/",
-  },
-];
-
 // Sites de clientes publicados, usados na apresentação do topo.
-export const sitesNoAr = [
-  ...projetos.filter((p) => p.aba === "publicados" && p.site),
-  ...outrosClientes,
-];
+export const sitesNoAr = projetos.filter(
+  (p) => p.aba === "publicados" && p.site,
+);
 
 export default projetos;
