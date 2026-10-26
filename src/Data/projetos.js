@@ -186,7 +186,6 @@ const projetos = [
     nome: "FinTrack",
     aba: "desenvolvimento",
     status: "saas",
-    capa: { cor: "#1b1640", detalhe: "#a99bff" },
     codigo: "https://github.com/Bryan-M-Almeida/FinTrack",
     resumo: {
       pt: "Plataforma de gestão financeira pessoal com controle de contas, agendamentos, simulações e painel analítico. Em fase inicial: a navegação está pronta e os módulos estão em construção.",
@@ -216,7 +215,6 @@ const projetos = [
     aba: "desenvolvimento",
     status: "jogo",
     privado: true,
-    capa: { cor: "#2a1f3d", detalhe: "#c9a7ff" },
     resumo: {
       pt: "Metroidvania 2D em Unity 6 inspirado em Hollow Knight, com animação quadro a quadro e poderes de manipular o tempo. Movimentação da protagonista pronta.",
       en: "2D metroidvania in Unity 6 inspired by Hollow Knight, with frame-by-frame animation and time-bending powers. Player movement is done.",
@@ -229,7 +227,6 @@ const projetos = [
     nome: "NEXUS.OS",
     aba: "desenvolvimento",
     status: "sistema",
-    capa: { cor: "#0d1b2a", detalhe: "#7fd1ff" },
     codigo: "https://github.com/Bryan-M-Almeida/NexusOS",
     resumo: {
       pt: "Sistema operacional bootável escrito do zero em Assembly e C, com sistema de arquivos próprio, shell e interface em três idiomas.",
@@ -244,7 +241,6 @@ const projetos = [
     aba: "desenvolvimento",
     status: "jogo",
     privado: true,
-    capa: { cor: "#14301f", detalhe: "#9be3b0" },
     resumo: {
       pt: "Jogos 2D e 3D em fase inicial, incluindo uma releitura de Pac-Man, usados para testar mecânicas antes de virarem projetos maiores.",
       en: "Early-stage 2D and 3D games, including a Pac-Man remake, used to test mechanics before they grow into bigger projects.",

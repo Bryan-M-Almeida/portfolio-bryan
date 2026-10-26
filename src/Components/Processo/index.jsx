@@ -16,7 +16,7 @@ const Processo = () => {
         <ol className="relative mt-16 grid gap-10 md:grid-cols-4 md:gap-8">
           <motion.span
             aria-hidden="true"
-            className="absolute top-5 left-5 hidden h-px origin-left bg-cobalt md:block"
+            className="absolute top-5 left-5 hidden h-px origin-left bg-slate/50 md:block"
             style={{ right: "calc(25% - 1.25rem)" }}
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}

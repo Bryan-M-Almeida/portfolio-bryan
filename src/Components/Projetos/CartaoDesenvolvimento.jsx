@@ -9,20 +9,19 @@ const ICONES_CAPA = { jogo: Gamepad2, sistema: Cpu, saas: ChartLine };
 const CapaDesenhada = ({ projeto }) => {
   const Icone = ICONES_CAPA[projeto.status] ?? Cpu;
   return (
-    <div
-      className="relative grid aspect-[16/10] place-items-center overflow-hidden"
-      style={{ background: projeto.capa.cor }}
-    >
+    <div className="relative grid aspect-[16/10] place-items-center overflow-hidden border-b border-line bg-porcelain">
       <div
-        className="absolute -top-1/3 -right-1/4 h-[140%] w-[80%] rounded-full opacity-30 blur-3xl transition-transform duration-700 group-hover:scale-110"
-        style={{ background: projeto.capa.detalhe }}
+        className="absolute inset-0 opacity-60"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 70% 20%, var(--c-borda), transparent 60%)",
+        }}
       />
       <Icone
-        size={72}
-        strokeWidth={1.25}
+        size={64}
+        strokeWidth={1.1}
         aria-hidden="true"
-        className="relative transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110"
-        style={{ color: projeto.capa.detalhe }}
+        className="relative text-slate transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110"
       />
     </div>
   );

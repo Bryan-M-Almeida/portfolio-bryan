@@ -149,7 +149,7 @@ const PilhaSites = () => {
           >
             <motion.span
               key={i === ativo ? `ativo-${ativo}-${rodando}` : s.id}
-              className="block h-full origin-left rounded-full bg-cobalt"
+              className="block h-full origin-left rounded-full bg-ink"
               initial={{ scaleX: i < ativo ? 1 : 0 }}
               animate={{
                 scaleX: i < ativo ? 1 : i === ativo ? (rodando ? 1 : 0.15) : 0,

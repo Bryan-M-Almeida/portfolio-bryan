@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Moon, Sun } from "lucide-react";
 import { useI18n } from "../../i18n/contexto";
 
-const COR_BARRA = { dark: "#0a0f1c", light: "#eef0f3" };
+const COR_BARRA = { dark: "#09090a", light: "#f4f4f5" };
 
 // O tema inicial é aplicado por um script no index.html (escuro por padrão), antes da página aparecer.
 const BotaoTema = () => {

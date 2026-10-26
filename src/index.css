@@ -22,30 +22,34 @@
 :root,
 [data-theme="dark"] {
   color-scheme: dark;
-  --c-fundo: #0a0f1c;
-  --c-superficie: #111829;
-  --c-texto: #e9edf5;
-  --c-suave: #9aa4ba;
-  --c-borda: #232d44;
-  --c-destaque: #4f68ff;
-  --c-destaque-forte: #b3bfff;
-  --c-destaque-fundo: #1a2350;
-  --c-hover-botao: #3d55ee;
-  --c-sombra: 0 0 0 / 0.55;
+  --c-fundo: #09090a;
+  --c-superficie: #131315;
+  --c-texto: #ededef;
+  --c-suave: #98989f;
+  --c-borda: #26262a;
+  --c-destaque: #9aa9c9;
+  --c-destaque-forte: #c3cde2;
+  --c-destaque-fundo: #1c1e24;
+  --c-botao: #ededef;
+  --c-botao-texto: #09090a;
+  --c-botao-hover: #ffffff;
+  --c-sombra: 0 0 0 / 0.6;
 }
 
 [data-theme="light"] {
   color-scheme: light;
-  --c-fundo: #eef0f3;
+  --c-fundo: #f4f4f5;
   --c-superficie: #ffffff;
-  --c-texto: #0f1a2e;
-  --c-suave: #566175;
-  --c-borda: #d6dbe3;
-  --c-destaque: #2d4bff;
-  --c-destaque-forte: #1f36d1;
-  --c-destaque-fundo: #e3e7ff;
-  --c-hover-botao: #1f36d1;
-  --c-sombra: 15 26 46 / 0.45;
+  --c-texto: #111113;
+  --c-suave: #5e5e67;
+  --c-borda: #e2e2e6;
+  --c-destaque: #44557d;
+  --c-destaque-forte: #2f3d5e;
+  --c-destaque-fundo: #e8ebf1;
+  --c-botao: #111113;
+  --c-botao-texto: #ffffff;
+  --c-botao-hover: #2a2a2e;
+  --c-sombra: 17 17 19 / 0.28;
 }
 
 @layer base {
@@ -78,7 +82,7 @@
   }
 
   ::selection {
-    @apply bg-cobalt text-white;
+    @apply bg-ink text-porcelain;
   }
 
   :focus-visible {
@@ -100,7 +104,7 @@
   }
 
   .btn-primario {
-    @apply bg-cobalt text-white shadow-[0_10px_30px_-12px_var(--c-destaque)] hover:bg-[var(--c-hover-botao)];
+    @apply bg-[var(--c-botao)] text-[var(--c-botao-texto)] hover:bg-[var(--c-botao-hover)];
   }
 
   .btn-secundario {
@@ -112,7 +116,7 @@
   }
 
   .campo {
-    @apply w-full rounded-xl border border-line bg-paper px-4 py-3 text-ink placeholder:text-slate/60 transition-colors focus:border-cobalt focus:outline-none focus:ring-4 focus:ring-cobalt-soft;
+    @apply w-full rounded-xl border border-line bg-paper px-4 py-3 text-ink placeholder:text-slate/60 transition-colors focus:border-slate focus:outline-none focus:ring-4 focus:ring-cobalt-soft;
   }
 
   .rotulo {
