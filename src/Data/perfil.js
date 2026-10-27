@@ -7,7 +7,7 @@ const perfil = {
     linkedin: "https://www.linkedin.com/in/bryan-maciel-de-almeida-4705942b9",
     instagram: "https://www.instagram.com/bry.codes",
   },
-  foto: "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1772132822/foto_kbfhxn.jpg",
+  foto: "https://res.cloudinary.com/dr2p2zd0x/image/upload/f_auto,q_auto,w_720/v1772132822/foto_kbfhxn.jpg",
   stack: [
     "React",
     "Next.js",

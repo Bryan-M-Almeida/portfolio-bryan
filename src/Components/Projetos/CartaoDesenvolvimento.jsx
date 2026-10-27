@@ -37,6 +37,9 @@ const CartaoDesenvolvimento = ({ projeto }) => {
             src={projeto.imagem}
             alt={projeto.nome}
             loading="lazy"
+            decoding="async"
+            width={1200}
+            height={750}
             referrerPolicy="no-referrer"
             draggable="false"
             className="h-full w-full object-cover object-top transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"

@@ -52,7 +52,7 @@ const Header = () => {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <SeletorIdioma id="header" />
+          <SeletorIdioma />
           <BotaoTema />
           <a href="#contato" className="btn btn-primario !px-5 !py-2.5">
             {t.nav.cta}
@@ -102,7 +102,7 @@ const Header = () => {
                 <span className="text-sm font-medium text-slate">
                   {t.nav.idioma}
                 </span>
-                <SeletorIdioma id="header-mobile" />
+                <SeletorIdioma />
               </div>
               <a
                 href="#contato"

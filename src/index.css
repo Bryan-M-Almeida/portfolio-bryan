@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    "Bricolage Grotesque Variable", "Instrument Sans Variable", sans-serif;
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -132,6 +132,16 @@ html.cursor-proprio * {
 
 html.cursor-proprio :is(input, textarea, [contenteditable="true"]) {
   cursor: text !important;
+}
+
+/* Arrasto da página inteira (ver hooks/useArrastarPagina) */
+html.arrastando-pagina,
+html.arrastando-pagina * {
+  user-select: none !important;
+}
+
+img {
+  -webkit-user-drag: none;
 }
 
 /* Screenshot longo: percorre a página ao passar o cursor e volta suavemente ao sair */

@@ -13,9 +13,12 @@ const Tela = ({ projeto, percorrer }) => {
         src={longa ? projeto.imagemLonga : projeto.imagem}
         alt={projeto.nome}
         loading="lazy"
+        decoding="async"
+        width={1200}
+        height={750}
         draggable="false"
         referrerPolicy="no-referrer"
-        className={`aspect-[16/10] w-full ${
+        className={`aspect-[16/10] h-auto w-full ${
           projeto.imagemLonga ? "tela-longa" : "object-cover object-top"
         }`}
       />

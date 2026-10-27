@@ -75,8 +75,12 @@ const PilhaSites = () => {
                   <img
                     src={s.imagem}
                     alt=""
-                    className="aspect-[16/10] w-full object-cover object-top"
+                    className="aspect-[16/10] h-auto w-full object-cover object-top"
                     loading={i < 2 ? "eager" : "lazy"}
+                    fetchPriority={i === 0 ? "high" : "auto"}
+                    decoding="async"
+                    width={1200}
+                    height={750}
                     referrerPolicy="no-referrer"
                   />
                 </a>

@@ -24,6 +24,9 @@ const Sobre = () => {
               src={perfil.foto}
               alt={perfil.nome}
               loading="lazy"
+              decoding="async"
+              width={720}
+              height={900}
               referrerPolicy="no-referrer"
               style={{ y: yFoto, scale: 1.18 }}
               className="h-full w-full object-cover"
