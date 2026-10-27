@@ -9,6 +9,7 @@ import { Check } from "lucide-react";
 import { sitesNoAr } from "../../Data/projetos";
 import { useI18n } from "../../i18n/contexto";
 import PilhaSites from "./PilhaSites";
+import LetrasZoom from "../LetrasZoom";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -40,14 +41,17 @@ const Hero = () => {
             className="text-[clamp(2.4rem,4.6vw,3.9rem)] leading-[0.98] font-extrabold tracking-[-0.045em]"
           >
             {t.hero.titulo.map((linha, i) => (
-              <span key={linha} className="block overflow-hidden pb-[0.06em]">
+              <span
+                key={linha}
+                className="block pb-[0.06em] [clip-path:inset(-60%_-15%_0_-15%)]"
+              >
                 <motion.span
                   className="block"
                   initial={{ y: "105%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1.1, delay: 0.1 + i * 0.1, ease }}
                 >
-                  {linha}
+                  <LetrasZoom texto={linha} />
                 </motion.span>
               </span>
             ))}

@@ -6,6 +6,7 @@ import Carrossel from "../Carrossel";
 import CartaoDesenvolvimento from "./CartaoDesenvolvimento";
 import CasoPublicado from "./CasoPublicado";
 import Revelar from "../Revelar";
+import LetrasZoom from "../LetrasZoom";
 
 const ABAS = ["publicados", "desenvolvimento"];
 
@@ -58,7 +59,9 @@ const Projetos = () => {
       <div className="container-page">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <Revelar className="max-w-xl">
-            <h2 className="titulo-secao">{t.projetos.titulo}</h2>
+            <h2 className="titulo-secao">
+              <LetrasZoom texto={t.projetos.titulo} />
+            </h2>
             <p className="mt-4 text-lg text-slate">{t.projetos.subtitulo}</p>
           </Revelar>
           <Abas aba={aba} setAba={setAba} />

@@ -3,6 +3,7 @@ import { ArrowRight, Mail } from "lucide-react";
 import perfil from "../../Data/perfil";
 import useParallax from "../../hooks/useParallax";
 import { useI18n } from "../../i18n/contexto";
+import LetrasZoom from "../LetrasZoom";
 
 const CtaFaixa = () => {
   const { t } = useI18n();
@@ -38,7 +39,7 @@ const CtaFaixa = () => {
 
           <div className="relative max-w-2xl">
             <h2 className="text-[clamp(2rem,4.2vw,3.25rem)] leading-[1.04] font-bold tracking-[-0.035em]">
-              {t.ctaFaixa.titulo}
+              <LetrasZoom texto={t.ctaFaixa.titulo} />
             </h2>
             <p className="mt-5 max-w-xl text-lg text-slate">
               {t.ctaFaixa.texto}

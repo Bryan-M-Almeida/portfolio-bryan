@@ -5,6 +5,7 @@ import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import perfil, { mailto } from "../../Data/perfil";
 import { useI18n } from "../../i18n/contexto";
 import Revelar from "../Revelar";
+import LetrasZoom from "../LetrasZoom";
 
 const REDES = [
   { href: perfil.links.linkedin, icone: FaLinkedinIn, label: "LinkedIn" },
@@ -52,7 +53,9 @@ const Contato = () => {
     <section id="contato" className="py-24 md:py-32">
       <div className="container-page grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20 [&>*]:min-w-0">
         <Revelar>
-          <h2 className="titulo-secao">{c.titulo}</h2>
+          <h2 className="titulo-secao">
+            <LetrasZoom texto={c.titulo} />
+          </h2>
           <p className="mt-5 max-w-md text-lg text-slate">{c.subtitulo}</p>
 
           <div className="mt-10 flex max-w-md items-center gap-2 rounded-2xl bg-paper p-2 pl-5 ring-1 ring-line">

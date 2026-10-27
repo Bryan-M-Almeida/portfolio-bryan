@@ -5,6 +5,7 @@ import perfil, { mailto } from "../../Data/perfil";
 import useParallax from "../../hooks/useParallax";
 import { useI18n } from "../../i18n/contexto";
 import Revelar from "../Revelar";
+import LetrasZoom from "../LetrasZoom";
 
 const Sobre = () => {
   const { t } = useI18n();
@@ -31,7 +32,9 @@ const Sobre = () => {
         </div>
 
         <Revelar>
-          <h2 className="titulo-secao">{t.sobre.titulo}</h2>
+          <h2 className="titulo-secao">
+            <LetrasZoom texto={t.sobre.titulo} />
+          </h2>
           <div className="mt-6 max-w-[38rem] space-y-4 text-lg text-slate">
             {t.sobre.paragrafos.map((p) => (
               <p key={p}>{p}</p>
