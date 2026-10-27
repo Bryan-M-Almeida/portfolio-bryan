@@ -1,6 +1,7 @@
 import { MotionConfig } from "motion/react";
 import Contato from "./Components/Contato";
 import CtaFaixa from "./Components/CtaFaixa";
+import Cursor from "./Components/Cursor";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
@@ -16,6 +17,7 @@ function App() {
   return (
     <I18nProvider>
       <MotionConfig reducedMotion="user">
+        <Cursor />
         <Header />
         <main>
           <Hero />

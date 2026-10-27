@@ -38,18 +38,18 @@
 
 [data-theme="light"] {
   color-scheme: light;
-  --c-fundo: #f4f4f5;
-  --c-superficie: #ffffff;
-  --c-texto: #111113;
-  --c-suave: #5e5e67;
-  --c-borda: #e2e2e6;
+  --c-fundo: #e9e9ec;
+  --c-superficie: #f7f7f8;
+  --c-texto: #0e0e10;
+  --c-suave: #52525b;
+  --c-borda: #d4d4da;
   --c-destaque: #44557d;
   --c-destaque-forte: #2f3d5e;
   --c-destaque-fundo: #e8ebf1;
   --c-botao: #111113;
   --c-botao-texto: #ffffff;
   --c-botao-hover: #2a2a2e;
-  --c-sombra: 17 17 19 / 0.28;
+  --c-sombra: 17 17 19 / 0.32;
 }
 
 @layer base {
@@ -122,6 +122,16 @@
   .rotulo {
     @apply mb-1.5 block text-sm font-semibold text-ink;
   }
+}
+
+/* Cursor próprio (ver Components/Cursor): esconde o nativo, menos em campos de texto */
+html.cursor-proprio,
+html.cursor-proprio * {
+  cursor: none !important;
+}
+
+html.cursor-proprio :is(input, textarea, [contenteditable="true"]) {
+  cursor: text !important;
 }
 
 /* Screenshot longo: percorre a página ao passar o cursor e volta suavemente ao sair */

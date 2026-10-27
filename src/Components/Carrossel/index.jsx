@@ -131,6 +131,7 @@ const Carrossel = ({ itens, renderItem, larguraSlide, rotulo }) => {
         role="region"
         aria-roledescription="carousel"
         aria-label={rotulo}
+        data-cursor={t.projetos.arrastar}
         tabIndex={0}
         onKeyDown={aoTeclar}
         onPointerDown={aoPressionar}
