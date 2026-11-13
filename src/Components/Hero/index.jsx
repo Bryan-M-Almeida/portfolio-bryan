@@ -6,6 +6,7 @@ import {
   useTransform,
 } from "motion/react";
 import { Check } from "lucide-react";
+import modelos from "../../Data/modelos";
 import { sitesNoAr } from "../../Data/projetos";
 import { useI18n } from "../../i18n/contexto";
 import PilhaSites from "./PilhaSites";
@@ -87,7 +88,7 @@ const Hero = () => {
             className="mt-8 flex items-center gap-2 text-[15px] text-slate"
           >
             <Check size={17} className="text-cobalt" aria-hidden="true" />
-            {t.hero.provaSocial(sitesNoAr.length)}
+            {t.hero.provaSocial(sitesNoAr.length, modelos.length)}
           </motion.p>
         </motion.div>
 

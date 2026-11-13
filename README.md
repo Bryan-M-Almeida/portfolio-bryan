@@ -36,8 +36,8 @@ The portfolio showcases a selection of real-world projects, including freelance 
 - **Residencial Bem Cuidar**: senior living residence website (client)
 - **SEA Treinamentos**, **Garcia Soluções Elétricas** and **Legado**: landing pages and company websites
 - **Axyron Global**: offshore and wind energy company website (client)
-- **Hikari Sushi**: landing page template for Japanese restaurants
-- In development: FinTrack, NEXUS (AMD Developer Hackathon), Laura: The Temporal Ward, NEXUS.OS
+- **32 industry templates** (clinics, restaurants, services, real estate, education…), customizable through URL parameters
+- In development: Trilha Fiel, FinTrack, NEXUS (AMD Developer Hackathon), Laura: The Temporal Ward, NEXUS.OS
 
 Projects live in `src/Data/projetos.js` and interface text in `src/i18n/textos.js`.
 
@@ -60,7 +60,7 @@ The project is deployed using Vercel and optimized for performance and SEO.
 
 GitHub: https://github.com/Bryan-M-Almeida
 
-Portfolio: https://portfolio-bryan-dev.vercel.app
+Portfolio: https://bryanmaciel.dev
 
 ## License
 

@@ -250,40 +250,20 @@ const projetos = [
     },
     stack: ["HTML5", "CSS3", "JavaScript"],
   },
+  // Em desenvolvimento
   {
-    id: "hikari-sushi",
-    nome: "Hikari Sushi",
-    aba: "publicados",
-    status: "modelo",
-    ano: 2026,
-    imagem: "/projetos/sushi.webp",
+    id: "trilha-fiel",
+    nome: "Trilha Fiel",
+    aba: "desenvolvimento",
+    status: "saas",
     privado: true,
     resumo: {
-      pt: "Landing page para restaurantes japoneses, personalizável para cada cliente só pelo link.",
-      en: "Landing page for Japanese restaurants, customized for each client just through the link.",
-      es: "Landing page para restaurantes japoneses, personalizable para cada cliente solo con el enlace.",
+      pt: "SaaS de aprendizado bíblico gamificado: trilha com mais de 270 lições, exercícios interativos, Bíblia completa, devocional, diário, economia de recompensas, contas e assinaturas com Stripe e Mercado Pago.",
+      en: "Gamified Bible learning SaaS: a path with 270+ lessons, interactive exercises, the full Bible, devotionals, a journal, a rewards economy, accounts and subscriptions with Stripe and Mercado Pago.",
+      es: "SaaS de aprendizaje bíblico gamificado: un recorrido con más de 270 lecciones, ejercicios interactivos, la Biblia completa, devocionales, diario, economía de recompensas, cuentas y suscripciones con Stripe y Mercado Pago.",
     },
-    entregas: {
-      pt: [
-        "Abertura animada em que os ingredientes se montam em um sushi ao rolar",
-        "Nome, cidade, WhatsApp e Instagram definidos por parâmetros na URL",
-        "Cardápio, rodízio, delivery e pedidos pelo WhatsApp",
-      ],
-      en: [
-        "Scroll-driven intro where the ingredients assemble into a sushi piece",
-        "Name, city, WhatsApp and Instagram set through URL parameters",
-        "Menu, all-you-can-eat, delivery and WhatsApp ordering",
-      ],
-      es: [
-        "Apertura animada en la que los ingredientes se arman en un sushi al hacer scroll",
-        "Nombre, ciudad, WhatsApp e Instagram definidos por parámetros en la URL",
-        "Menú, rodizio, delivery y pedidos por WhatsApp",
-      ],
-    },
-    stack: ["React", "Motion", "Vite"],
+    stack: ["Next.js", "TypeScript", "Supabase", "Stripe"],
   },
-
-  // Em desenvolvimento
   {
     id: "fintrack",
     nome: "FinTrack",

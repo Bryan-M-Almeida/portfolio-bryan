@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/projetos/(.*)",
+      "source": "/(projetos|modelos)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

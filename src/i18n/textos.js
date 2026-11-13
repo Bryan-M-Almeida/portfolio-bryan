@@ -30,7 +30,8 @@ const textos = {
       anterior: "Site anterior",
       proximo: "Próximo site",
       abrirSite: "Abrir site",
-      provaSocial: (n) => `${n} sites em produção`,
+      provaSocial: (n, m) =>
+        `${n} sites em produção e ${m} modelos por segmento`,
     },
     projetos: {
       titulo: "Projetos",
@@ -38,6 +39,7 @@ const textos = {
         "Uma seleção de sites em produção para clientes e de produtos autorais. Arraste para navegar e passe o cursor sobre um site para percorrer a página.",
       abas: {
         publicados: "Em produção",
+        modelos: "Modelos",
         desenvolvimento: "Em desenvolvimento",
       },
       visitar: "Visitar site",
@@ -50,6 +52,28 @@ const textos = {
         "Projeto sem demonstração pública. Apresento o trabalho em uma breve chamada.",
       entregas: "Escopo entregue",
       outrosTitulo: "Outros projetos em produção",
+      modelos: {
+        titulo: "Modelos prontos por segmento",
+        texto:
+          "Sites completos e publicados para diferentes ramos, personalizados com o nome, a cidade, o WhatsApp e o Instagram do seu negócio. Uma forma rápida e acessível de estar no ar com um site profissional.",
+        categorias: {
+          todos: "Todos",
+          saude: "Saúde",
+          alimentacao: "Alimentação",
+          beleza: "Beleza e bem-estar",
+          servicos: "Serviços",
+          casa: "Casa e construção",
+          turismo: "Turismo e imóveis",
+          educacao: "Educação",
+        },
+        verDemo: "Ver demonstração",
+        quero: "Quero este modelo",
+        verTodos: (n) => `Ver todos os ${n} modelos`,
+        mostrarMenos: "Mostrar menos",
+        assunto: (nome) => `Quero o modelo ${nome}`,
+        corpo: (nome) =>
+          `Olá, Bryan. Gostei do modelo "${nome}" do seu portfólio e quero um site assim para o meu negócio.`,
+      },
       assuntoPedido: (nome) => `Demonstração do projeto ${nome}`,
       corpoPedido: (nome) =>
         `Olá, Bryan. Conheci o projeto ${nome} pelo seu portfólio e gostaria de agendar uma demonstração.`,
@@ -192,13 +216,17 @@ const textos = {
       anterior: "Previous site",
       proximo: "Next site",
       abrirSite: "Open site",
-      provaSocial: (n) => `${n} websites live`,
+      provaSocial: (n, m) => `${n} websites live and ${m} industry templates`,
     },
     projetos: {
       titulo: "Work",
       subtitulo:
         "A selection of live client websites and original products. Drag to browse and hover over a site to scroll through the page.",
-      abas: { publicados: "Live", desenvolvimento: "In development" },
+      abas: {
+        publicados: "Live",
+        modelos: "Templates",
+        desenvolvimento: "In development",
+      },
       visitar: "Visit site",
       arrastar: "Drag",
       anterior: "Previous project",
@@ -209,6 +237,28 @@ const textos = {
         "There is no public demo for this project. I'm happy to walk you through it on a short call.",
       entregas: "Delivered scope",
       outrosTitulo: "More live projects",
+      modelos: {
+        titulo: "Ready-made templates by industry",
+        texto:
+          "Complete, published websites for different industries, customized with your business name, city, WhatsApp and Instagram. A fast, affordable way to go live with a professional website.",
+        categorias: {
+          todos: "All",
+          saude: "Health",
+          alimentacao: "Food",
+          beleza: "Beauty and wellness",
+          servicos: "Services",
+          casa: "Home and construction",
+          turismo: "Travel and real estate",
+          educacao: "Education",
+        },
+        verDemo: "View demo",
+        quero: "I want this template",
+        verTodos: (n) => `View all ${n} templates`,
+        mostrarMenos: "Show less",
+        assunto: (nome) => `I want the ${nome} template`,
+        corpo: (nome) =>
+          `Hi Bryan, I liked the "${nome}" template in your portfolio and would like a website like it for my business.`,
+      },
       assuntoPedido: (nome) => `Demo of ${nome}`,
       corpoPedido: (nome) =>
         `Hi Bryan, I came across ${nome} in your portfolio and would like to schedule a demo.`,
@@ -350,13 +400,18 @@ const textos = {
       anterior: "Sitio anterior",
       proximo: "Siguiente sitio",
       abrirSite: "Abrir sitio",
-      provaSocial: (n) => `${n} sitios en producción`,
+      provaSocial: (n, m) =>
+        `${n} sitios en producción y ${m} plantillas por rubro`,
     },
     projetos: {
       titulo: "Proyectos",
       subtitulo:
         "Una selección de sitios en producción para clientes y de productos propios. Arrastre para navegar y pase el cursor sobre un sitio para recorrer la página.",
-      abas: { publicados: "En producción", desenvolvimento: "En desarrollo" },
+      abas: {
+        publicados: "En producción",
+        modelos: "Plantillas",
+        desenvolvimento: "En desarrollo",
+      },
       visitar: "Visitar sitio",
       arrastar: "Arrastrar",
       anterior: "Proyecto anterior",
@@ -367,6 +422,28 @@ const textos = {
         "Proyecto sin demostración pública. Lo presento en una breve llamada.",
       entregas: "Alcance entregado",
       outrosTitulo: "Otros proyectos en producción",
+      modelos: {
+        titulo: "Plantillas listas por rubro",
+        texto:
+          "Sitios completos y publicados para distintos rubros, personalizados con el nombre, la ciudad, el WhatsApp y el Instagram de su negocio. Una forma rápida y accesible de estar en línea con un sitio profesional.",
+        categorias: {
+          todos: "Todas",
+          saude: "Salud",
+          alimentacao: "Gastronomía",
+          beleza: "Belleza y bienestar",
+          servicos: "Servicios",
+          casa: "Hogar y construcción",
+          turismo: "Turismo e inmuebles",
+          educacao: "Educación",
+        },
+        verDemo: "Ver demostración",
+        quero: "Quiero esta plantilla",
+        verTodos: (n) => `Ver las ${n} plantillas`,
+        mostrarMenos: "Mostrar menos",
+        assunto: (nome) => `Quiero la plantilla ${nome}`,
+        corpo: (nome) =>
+          `Hola, Bryan. Me gustó la plantilla "${nome}" de su portafolio y quiero un sitio así para mi negocio.`,
+      },
       assuntoPedido: (nome) => `Demostración del proyecto ${nome}`,
       corpoPedido: (nome) =>
         `Hola, Bryan. Conocí el proyecto ${nome} en su portafolio y me gustaría agendar una demostración.`,
