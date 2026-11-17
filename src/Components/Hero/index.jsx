@@ -41,6 +41,15 @@ const Hero = () => {
             key={idioma}
             className="text-[clamp(2.4rem,4.6vw,3.9rem)] leading-[0.98] font-extrabold tracking-[-0.045em]"
           >
+            {/* Linha de apoio dentro do h1: diz o que eu faço com as palavras que as pessoas buscam */}
+            <motion.span
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease }}
+              className="mb-6 block font-sans text-[13px] leading-snug font-semibold tracking-[0.12em] text-slate uppercase"
+            >
+              {t.hero.chamada}
+            </motion.span>
             {t.hero.titulo.map((linha, i) => (
               <span
                 key={linha}

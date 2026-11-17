@@ -7,7 +7,7 @@ import BotaoTema from "../BotaoTema";
 import Logo from "../Logo";
 import SeletorIdioma from "../SeletorIdioma";
 
-const SECOES = ["projetos", "processo", "sobre", "contato"];
+const SECOES = ["projetos", "processo", "sobre", "faq", "contato"];
 
 const Header = () => {
   const { t } = useI18n();
@@ -39,7 +39,7 @@ const Header = () => {
       <div className="container-page flex h-[72px] items-center justify-between gap-6">
         <Logo />
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
           {SECOES.map((id) => (
             <a
               key={id}
@@ -54,7 +54,11 @@ const Header = () => {
         <div className="hidden items-center gap-3 lg:flex">
           <SeletorIdioma />
           <BotaoTema />
-          <a href="#contato" className="btn btn-primario !px-5 !py-2.5">
+          {/* Em telas médias o CTA do topo some para não apertar o menu; o hero já tem um */}
+          <a
+            href="#contato"
+            className="btn btn-primario hidden !px-5 !py-2.5 xl:inline-flex"
+          >
             {t.nav.cta}
           </a>
         </div>

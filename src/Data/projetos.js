@@ -1,6 +1,6 @@
 // Projetos do portfólio.
 // aba: "publicados" | "desenvolvimento"
-// privado: true mostra "Pedir para ver" no lugar do link do código.
+// privado: true mostra "Solicitar demonstração" no lugar do link do site.
 // imagemLonga: screenshot da página inteira, que rola ao passar o mouse.
 // Textos com { pt, en, es } são traduzidos; os demais valem para todos os idiomas.
 
@@ -316,19 +316,6 @@ const projetos = [
       es: "Sistema operativo arrancable escrito desde cero en Assembly y C, con sistema de archivos propio, shell e interfaz en tres idiomas.",
     },
     stack: ["C", "Assembly", "QEMU"],
-  },
-  {
-    id: "unity-prototipos",
-    nome: "Protótipos em Unity",
-    aba: "desenvolvimento",
-    status: "jogo",
-    privado: true,
-    resumo: {
-      pt: "Jogos 2D e 3D em fase inicial, incluindo uma releitura de Pac-Man, usados para testar mecânicas antes de virarem projetos maiores.",
-      en: "Early-stage 2D and 3D games, including a Pac-Man remake, used to test mechanics before they grow into bigger projects.",
-      es: "Juegos 2D y 3D en etapa inicial, incluida una versión de Pac-Man, usados para probar mecánicas antes de convertirse en proyectos mayores.",
-    },
-    stack: ["Unity", "C#"],
   },
 ];
 

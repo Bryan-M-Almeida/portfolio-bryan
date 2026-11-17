@@ -2,15 +2,42 @@
 const textos = {
   pt: {
     meta: {
-      titulo:
-        "Bryan Maciel | Desenvolvedor Web: sites institucionais e landing pages",
+      titulo: "Bryan Maciel | Criação de Sites Profissionais e Landing Pages",
       descricao:
-        "Desenvolvimento de sites institucionais, landing pages e aplicações web de alto desempenho com React, Next.js e TypeScript. Projetos sob medida, otimizados para SEO e conversão.",
+        "Desenvolvedor web freelancer: criação de sites profissionais, landing pages e aplicações web rápidas, responsivas e otimizadas para o Google. Sites sob medida e modelos prontos para clínicas, restaurantes, lojas e prestadores de serviço.",
+      ogTitulo: "Bryan Maciel | Desenvolvedor Web",
+      ogDescricao:
+        "Presença digital à altura do seu negócio. Sites profissionais, landing pages e aplicações web sob medida.",
+      palavras: [
+        "criação de sites",
+        "criar site profissional",
+        "desenvolvedor web",
+        "desenvolvedor web freelancer",
+        "desenvolvedor de sites",
+        "site para empresa",
+        "site institucional",
+        "landing page",
+        "criação de landing page",
+        "site responsivo",
+        "site otimizado para Google",
+        "SEO para sites",
+        "site para clínica",
+        "site para restaurante",
+        "site para pequenas empresas",
+        "modelos de site",
+        "desenvolvedor React",
+        "desenvolvedor Next.js",
+        "desenvolvedor front-end",
+        "desenvolvedor full stack",
+        "programador freelancer",
+        "Bryan Maciel",
+      ],
     },
     nav: {
       projetos: "Projetos",
       processo: "Processo",
       sobre: "Sobre",
+      faq: "Dúvidas",
       contato: "Contato",
       cta: "Solicitar proposta",
       abrirMenu: "Abrir menu",
@@ -20,6 +47,7 @@ const textos = {
       temaEscuro: "Ativar tema escuro",
     },
     hero: {
+      chamada: "Desenvolvedor web · Criação de sites e landing pages",
       titulo: ["Presença digital", "à altura do", "seu negócio."],
       texto:
         "Projeto e desenvolvo sites institucionais, landing pages e aplicações web sob medida, com design refinado, carregamento rápido e estrutura pensada para converter visitantes em clientes.",
@@ -51,7 +79,6 @@ const textos = {
       privadoNota:
         "Projeto sem demonstração pública. Apresento o trabalho em uma breve chamada.",
       entregas: "Escopo entregue",
-      outrosTitulo: "Outros projetos em produção",
       modelos: {
         titulo: "Modelos prontos por segmento",
         texto:
@@ -62,10 +89,14 @@ const textos = {
           alimentacao: "Alimentação",
           beleza: "Beleza e bem-estar",
           servicos: "Serviços",
+          comercio: "Comércio",
           casa: "Casa e construção",
           turismo: "Turismo e imóveis",
           educacao: "Educação",
         },
+        altImagem: "Modelo de site:",
+        emIngles: "Em inglês",
+        emInglesNota: "Site em inglês, feito para o mercado dos Estados Unidos",
         verDemo: "Ver demonstração",
         quero: "Quero este modelo",
         verTodos: (n) => `Ver todos os ${n} modelos`,
@@ -79,7 +110,6 @@ const textos = {
         `Olá, Bryan. Conheci o projeto ${nome} pelo seu portfólio e gostaria de agendar uma demonstração.`,
       status: {
         cliente: "Cliente",
-        modelo: "Modelo para restaurantes",
         vendas: "Página de vendas",
         saas: "SaaS",
         hackathon: "Projeto de hackathon",
@@ -139,6 +169,36 @@ const textos = {
       pedirCurriculo: "Solicitar currículo",
       assuntoCurriculo: "Solicitação de currículo",
     },
+    faq: {
+      titulo: "Perguntas frequentes",
+      subtitulo: "O que normalmente me perguntam antes de começar um projeto.",
+      itens: [
+        {
+          p: "Quanto custa criar um site profissional?",
+          r: "O investimento depende do escopo: quantidade de páginas, funcionalidades e integrações. Depois de entender o projeto, envio uma proposta com valor, prazo e entregas definidos. Os modelos por segmento são a opção mais acessível para quem quer estar no ar rapidamente.",
+        },
+        {
+          p: "Quanto tempo leva para o site ficar pronto?",
+          r: "Um modelo personalizado fica pronto em poucos dias. Um site sob medida costuma levar algumas semanas, conforme o escopo. O prazo exato vem na proposta, antes de qualquer compromisso.",
+        },
+        {
+          p: "O site vai aparecer no Google?",
+          r: "Todo site é entregue com SEO técnico: estrutura semântica, títulos e descrições, dados estruturados, sitemap, carregamento rápido e versão para celular. Essa é a base para o Google indexar e posicionar a página; a posição final também depende da concorrência e do conteúdo.",
+        },
+        {
+          p: "O que está incluído na entrega?",
+          r: "Design responsivo, desenvolvimento, otimização de desempenho e SEO, integração com WhatsApp e formulários, publicação no seu domínio e suporte após a entrega. Painel administrativo, pagamentos online e outras integrações entram quando o projeto pede.",
+        },
+        {
+          p: "Atende empresas de outras cidades e países?",
+          r: "Sim. O trabalho é remoto, com atendimento em português, inglês e espanhol para clientes no Brasil, na Bolívia e em outros países.",
+        },
+        {
+          p: "E depois que o site estiver no ar?",
+          r: "Continuo à disposição. Correções de falhas da minha parte não têm custo; alterações de conteúdo, novas páginas e funcionalidades são orçadas à parte.",
+        },
+      ],
+    },
     contato: {
       titulo: "Solicite uma proposta",
       subtitulo:
@@ -188,15 +248,38 @@ const textos = {
 
   en: {
     meta: {
-      titulo:
-        "Bryan Maciel | Web Developer: business websites and landing pages",
+      titulo: "Bryan Maciel | Freelance Web Developer: Websites & Landing Pages",
       descricao:
-        "High-performance business websites, landing pages and web applications built with React, Next.js and TypeScript. Custom work, optimized for SEO and conversion.",
+        "Freelance web developer building fast, responsive, SEO-optimized business websites, landing pages and web applications with React and Next.js. Custom work and ready-made templates for clinics, restaurants, shops and local services.",
+      ogTitulo: "Bryan Maciel | Web Developer",
+      ogDescricao:
+        "A digital presence that matches your business. Custom websites, landing pages and web applications.",
+      palavras: [
+        "freelance web developer",
+        "web developer for hire",
+        "website developer",
+        "website design and development",
+        "small business website",
+        "business website",
+        "landing page developer",
+        "landing page design",
+        "SEO-friendly website",
+        "responsive website",
+        "website templates",
+        "restaurant website",
+        "React developer",
+        "Next.js developer",
+        "front-end developer",
+        "full stack developer",
+        "remote web developer",
+        "Bryan Maciel",
+      ],
     },
     nav: {
       projetos: "Work",
       processo: "Process",
       sobre: "About",
+      faq: "FAQ",
       contato: "Contact",
       cta: "Request a proposal",
       abrirMenu: "Open menu",
@@ -206,6 +289,7 @@ const textos = {
       temaEscuro: "Switch to dark theme",
     },
     hero: {
+      chamada: "Freelance web developer · Websites and landing pages",
       titulo: ["A digital presence", "that matches", "your business."],
       texto:
         "I design and build custom business websites, landing pages and web applications with refined design, fast load times and a structure built to turn visitors into clients.",
@@ -236,7 +320,6 @@ const textos = {
       privadoNota:
         "There is no public demo for this project. I'm happy to walk you through it on a short call.",
       entregas: "Delivered scope",
-      outrosTitulo: "More live projects",
       modelos: {
         titulo: "Ready-made templates by industry",
         texto:
@@ -247,10 +330,14 @@ const textos = {
           alimentacao: "Food",
           beleza: "Beauty and wellness",
           servicos: "Services",
+          comercio: "Retail",
           casa: "Home and construction",
           turismo: "Travel and real estate",
           educacao: "Education",
         },
+        altImagem: "Website template:",
+        emIngles: "English",
+        emInglesNota: "English-language website built for the US market",
         verDemo: "View demo",
         quero: "I want this template",
         verTodos: (n) => `View all ${n} templates`,
@@ -264,7 +351,6 @@ const textos = {
         `Hi Bryan, I came across ${nome} in your portfolio and would like to schedule a demo.`,
       status: {
         cliente: "Client",
-        modelo: "Restaurant template",
         vendas: "Sales page",
         saas: "SaaS",
         hackathon: "Hackathon project",
@@ -323,6 +409,36 @@ const textos = {
       pedirCurriculo: "Request my CV",
       assuntoCurriculo: "CV request",
     },
+    faq: {
+      titulo: "Frequently asked questions",
+      subtitulo: "What clients usually ask before starting a project.",
+      itens: [
+        {
+          p: "How much does a professional website cost?",
+          r: "It depends on the scope: number of pages, features and integrations. Once I understand the project, I send a proposal with a defined price, timeline and deliverables. The industry templates are the most affordable option for getting online quickly.",
+        },
+        {
+          p: "How long does it take to build a website?",
+          r: "A customized template is ready in a few days. A custom website usually takes a few weeks, depending on the scope. The exact timeline is in the proposal, before any commitment.",
+        },
+        {
+          p: "Will my website show up on Google?",
+          r: "Every website ships with technical SEO: semantic structure, titles and descriptions, structured data, a sitemap, fast loading and a mobile-friendly layout. That is the foundation Google needs to index and rank the page; the final position also depends on competition and content.",
+        },
+        {
+          p: "What is included?",
+          r: "Responsive design, development, performance and SEO optimization, WhatsApp and form integration, deployment on your domain and post-launch support. Admin dashboards, online payments and other integrations are added when the project needs them.",
+        },
+        {
+          p: "Do you work with clients in other countries?",
+          r: "Yes. I work remotely and communicate in English, Portuguese and Spanish, with clients in Brazil, Bolivia and beyond.",
+        },
+        {
+          p: "What happens after launch?",
+          r: "I'm still available. Fixes for issues on my end are free of charge; content changes, new pages and features are quoted separately.",
+        },
+      ],
+    },
     contato: {
       titulo: "Request a proposal",
       subtitulo:
@@ -372,15 +488,39 @@ const textos = {
 
   es: {
     meta: {
-      titulo:
-        "Bryan Maciel | Desarrollador Web: sitios institucionales y landing pages",
+      titulo: "Bryan Maciel | Diseño y Desarrollo de Páginas Web Profesionales",
       descricao:
-        "Desarrollo de sitios institucionales, landing pages y aplicaciones web de alto rendimiento con React, Next.js y TypeScript. Proyectos a medida, optimizados para SEO y conversión.",
+        "Desarrollador web freelance: diseño de páginas web profesionales, landing pages y aplicaciones web rápidas, responsivas y optimizadas para Google. Sitios a medida y plantillas listas para clínicas, restaurantes, tiendas y servicios.",
+      ogTitulo: "Bryan Maciel | Desarrollador Web",
+      ogDescricao:
+        "Presencia digital a la altura de su negocio. Sitios profesionales, landing pages y aplicaciones web a medida.",
+      palavras: [
+        "diseño de páginas web",
+        "desarrollo de páginas web",
+        "creación de sitios web",
+        "desarrollador web",
+        "desarrollador web freelance",
+        "página web para empresas",
+        "sitio web profesional",
+        "landing page",
+        "diseño web Bolivia",
+        "desarrollo web Bolivia",
+        "página web para restaurante",
+        "página web para clínica",
+        "posicionamiento SEO",
+        "plantillas web",
+        "programador web",
+        "desarrollador React",
+        "desarrollador Next.js",
+        "desarrollador full stack",
+        "Bryan Maciel",
+      ],
     },
     nav: {
       projetos: "Proyectos",
       processo: "Proceso",
       sobre: "Perfil",
+      faq: "Preguntas",
       contato: "Contacto",
       cta: "Solicitar propuesta",
       abrirMenu: "Abrir menú",
@@ -390,6 +530,7 @@ const textos = {
       temaEscuro: "Activar tema oscuro",
     },
     hero: {
+      chamada: "Desarrollador web · Diseño de páginas web y landing pages",
       titulo: ["Presencia digital", "a la altura de", "su negocio."],
       texto:
         "Diseño y desarrollo sitios institucionales, landing pages y aplicaciones web a medida, con un diseño cuidado, carga rápida y una estructura pensada para convertir visitantes en clientes.",
@@ -421,7 +562,6 @@ const textos = {
       privadoNota:
         "Proyecto sin demostración pública. Lo presento en una breve llamada.",
       entregas: "Alcance entregado",
-      outrosTitulo: "Otros proyectos en producción",
       modelos: {
         titulo: "Plantillas listas por rubro",
         texto:
@@ -432,10 +572,14 @@ const textos = {
           alimentacao: "Gastronomía",
           beleza: "Belleza y bienestar",
           servicos: "Servicios",
+          comercio: "Comercio",
           casa: "Hogar y construcción",
           turismo: "Turismo e inmuebles",
           educacao: "Educación",
         },
+        altImagem: "Plantilla de sitio web:",
+        emIngles: "En inglés",
+        emInglesNota: "Sitio en inglés, hecho para el mercado de Estados Unidos",
         verDemo: "Ver demostración",
         quero: "Quiero esta plantilla",
         verTodos: (n) => `Ver las ${n} plantillas`,
@@ -449,7 +593,6 @@ const textos = {
         `Hola, Bryan. Conocí el proyecto ${nome} en su portafolio y me gustaría agendar una demostración.`,
       status: {
         cliente: "Cliente",
-        modelo: "Plantilla para restaurantes",
         vendas: "Página de ventas",
         saas: "SaaS",
         hackathon: "Proyecto de hackathon",
@@ -508,6 +651,36 @@ const textos = {
       ],
       pedirCurriculo: "Solicitar CV",
       assuntoCurriculo: "Solicitud de CV",
+    },
+    faq: {
+      titulo: "Preguntas frecuentes",
+      subtitulo: "Lo que suelen preguntarme antes de empezar un proyecto.",
+      itens: [
+        {
+          p: "¿Cuánto cuesta una página web profesional?",
+          r: "La inversión depende del alcance: cantidad de páginas, funcionalidades e integraciones. Después de entender el proyecto, envío una propuesta con precio, plazo y entregables definidos. Las plantillas por rubro son la opción más accesible para estar en línea rápidamente.",
+        },
+        {
+          p: "¿Cuánto tiempo tarda en estar lista la página?",
+          r: "Una plantilla personalizada está lista en pocos días. Un sitio a medida suele llevar algunas semanas, según el alcance. El plazo exacto figura en la propuesta, antes de cualquier compromiso.",
+        },
+        {
+          p: "¿Mi página aparecerá en Google?",
+          r: "Cada sitio se entrega con SEO técnico: estructura semántica, títulos y descripciones, datos estructurados, sitemap, carga rápida y versión móvil. Es la base para que Google indexe y posicione la página; la posición final también depende de la competencia y del contenido.",
+        },
+        {
+          p: "¿Qué incluye la entrega?",
+          r: "Diseño responsivo, desarrollo, optimización de rendimiento y SEO, integración con WhatsApp y formularios, publicación en su dominio y soporte posterior a la entrega. Paneles de administración, pagos en línea y otras integraciones se suman cuando el proyecto lo requiere.",
+        },
+        {
+          p: "¿Trabaja con empresas de otras ciudades y países?",
+          r: "Sí. Trabajo de forma remota, con atención en español, portugués e inglés para clientes en Bolivia, Brasil y otros países.",
+        },
+        {
+          p: "¿Y después de que el sitio esté en línea?",
+          r: "Sigo a disposición. La corrección de fallas de mi parte no tiene costo; los cambios de contenido, nuevas páginas y funcionalidades se presupuestan por separado.",
+        },
+      ],
     },
     contato: {
       titulo: "Solicite una propuesta",

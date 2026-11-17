@@ -38,7 +38,7 @@ const Abas = ({ aba, setAba }) => {
         <motion.span
           aria-hidden="true"
           className="absolute top-1 bottom-1 left-0 rounded-full bg-ink"
-          initial={false}
+          initial={{ x: pilula.x, width: pilula.largura }}
           animate={{ x: pilula.x, width: pilula.largura }}
           transition={{ type: "spring", stiffness: 420, damping: 38 }}
         />

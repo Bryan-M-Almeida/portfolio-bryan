@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
   AnimatePresence,
   motion,
@@ -15,6 +15,8 @@ const CAMPOS = 'input, textarea, [contenteditable="true"]';
 const deveAtivar = () =>
   window.matchMedia("(pointer: fine)").matches &&
   !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const semInscricao = () => () => {};
 
 // Tamanho do anel em cada estado.
 const ANEL = { normal: 32, link: 50, zoom: 64, rotulo: 86, arrastando: 44 };
@@ -33,7 +35,8 @@ let idClique = 0;
   - onda a cada clique, confirmando onde ele aconteceu.
 */
 const Cursor = () => {
-  const [ativo] = useState(deveAtivar);
+  // No servidor (pré-render) fica desligado; no navegador decide pela tela
+  const ativo = useSyncExternalStore(semInscricao, deveAtivar, () => false);
   const [estado, setEstado] = useState("normal");
   const [rotulo, setRotulo] = useState("");
   const [visivel, setVisivel] = useState(false);

@@ -21,7 +21,7 @@ export const Marca = ({ size = 32, className = "" }) => (
 );
 
 const Logo = () => (
-  <a href="#inicio" className="group flex items-center gap-2.5">
+  <a href="#inicio" className="group flex shrink-0 items-center gap-2.5 whitespace-nowrap">
     <Marca className="transition-transform duration-300 group-hover:-rotate-6" />
     <span className="font-display text-[19px] font-bold tracking-[-0.025em]">
       Bryan Maciel

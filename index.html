@@ -3,46 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Bryan Maciel | Desenvolvedor Web: sites institucionais e landing pages
-    </title>
-    <meta
-      name="description"
-      content="Desenvolvimento de sites institucionais, landing pages e aplicações web de alto desempenho com React, Next.js e TypeScript. Projetos sob medida, otimizados para SEO e conversão."
-    />
-    <meta
-      name="keywords"
-      content="desenvolvedor web, desenvolvedor web freelancer, criação de sites, site institucional, landing page, desenvolvimento de sites para empresas, site profissional, otimização SEO, site rápido, desenvolvedor React, desenvolvedor Next.js, desenvolvedor TypeScript, desenvolvedor front-end, desenvolvedor full stack, web developer, freelance web developer, website development, business website, landing page developer, React developer, desarrollador web, desarrollador web freelance, diseño de páginas web, sitio web profesional, desarrollo web Bolivia, modelos de site, site para clínica, site para restaurante, site para negócios locais, landing page para pequenas empresas, website templates, Bryan Maciel, bryanmaciel.dev"
-    />
-    <meta name="author" content="Bryan Maciel" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#09090a" />
+    <!-- Gerado por scripts/prerender.mjs para cada idioma; aqui fica só o padrão do modo dev -->
+    <!--seo-->
+    <title>Bryan Maciel | Criação de Sites Profissionais e Landing Pages</title>
+    <meta name="description" content="Desenvolvedor web freelancer: criação de sites profissionais, landing pages e aplicações web." />
     <link rel="canonical" href="https://www.bryanmaciel.dev/" />
-    <link
-      rel="alternate"
-      hreflang="pt-BR"
-      href="https://www.bryanmaciel.dev/?lang=pt"
-    />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="https://www.bryanmaciel.dev/?lang=en"
-    />
-    <link
-      rel="alternate"
-      hreflang="es"
-      href="https://www.bryanmaciel.dev/?lang=es"
-    />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://www.bryanmaciel.dev/"
-    />
+    <meta property="og:url" content="https://www.bryanmaciel.dev/" />
+    <!--/seo-->
+    <meta name="theme-color" content="#09090a" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Aplica o tema salvo antes da página aparecer (escuro por padrão) -->
+    <!-- Antes da página aparecer: idioma lembrado (ou ?lang= antigo) e tema salvo -->
     <script>
+      try {
+        var rotas = { pt: "/", en: "/en/", es: "/es/" };
+        var daUrl = new URLSearchParams(location.search).get("lang");
+        var alvo = rotas[daUrl];
+        if (!alvo && location.pathname === "/") {
+          var salvo = localStorage.getItem("portfolio-idioma");
+          if (salvo !== "pt") alvo = rotas[salvo];
+        }
+        if (alvo && alvo !== location.pathname) location.replace(alvo + location.hash);
+      } catch (e) {}
       try {
         var tema = localStorage.getItem("portfolio-tema");
         if (tema === "light" || tema === "dark") {
@@ -64,84 +47,6 @@
       fetchpriority="high"
     />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Bryan Maciel" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:locale:alternate" content="es_ES" />
-    <meta property="og:url" content="https://www.bryanmaciel.dev/" />
-    <meta property="og:title" content="Bryan Maciel | Desenvolvedor Web" />
-    <meta
-      property="og:description"
-      content="Presença digital à altura do seu negócio. Sites institucionais, landing pages e aplicações web sob medida."
-    />
-    <meta
-      property="og:image"
-      content="https://www.bryanmaciel.dev/og.jpg"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Bryan Maciel | Desenvolvedor Web" />
-    <meta
-      name="twitter:description"
-      content="Presença digital à altura do seu negócio. Sites institucionais, landing pages e aplicações web sob medida."
-    />
-    <meta
-      name="twitter:image"
-      content="https://www.bryanmaciel.dev/og.jpg"
-    />
-
-    <!-- Dados estruturados para buscadores -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Person",
-            "@id": "https://www.bryanmaciel.dev/#bryan",
-            "name": "Bryan Maciel",
-            "jobTitle": "Desenvolvedor Web",
-            "url": "https://www.bryanmaciel.dev/",
-            "image": "https://res.cloudinary.com/dr2p2zd0x/image/upload/v1772132822/foto_kbfhxn.jpg",
-            "knowsAbout": [
-              "Desenvolvimento web",
-              "React",
-              "Next.js",
-              "TypeScript",
-              "SEO técnico",
-              "Landing pages",
-              "Sites institucionais"
-            ],
-            "knowsLanguage": ["pt-BR", "en", "es"],
-            "sameAs": [
-              "https://github.com/Bryan-M-Almeida",
-              "https://www.linkedin.com/in/bryan-maciel-de-almeida-4705942b9",
-              "https://www.instagram.com/bry.codes"
-            ]
-          },
-          {
-            "@type": "ProfessionalService",
-            "name": "Bryan Maciel | Desenvolvimento Web",
-            "url": "https://www.bryanmaciel.dev/",
-            "image": "https://www.bryanmaciel.dev/og.jpg",
-            "founder": {
-              "@id": "https://www.bryanmaciel.dev/#bryan"
-            },
-            "description": "Desenvolvimento de sites institucionais, landing pages e aplicações web sob medida.",
-            "serviceType": [
-              "Criação de sites institucionais",
-              "Desenvolvimento de landing pages",
-              "Desenvolvimento de aplicações web"
-            ],
-            "areaServed": ["BR", "BO", "Worldwide"]
-          }
-        ]
-      }
-    </script>
   </head>
   <body>
     <div id="root"></div>

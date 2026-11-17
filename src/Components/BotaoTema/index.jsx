@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Moon, Sun } from "lucide-react";
 import { useI18n } from "../../i18n/contexto";
@@ -6,30 +6,37 @@ import { useI18n } from "../../i18n/contexto";
 const COR_BARRA = { dark: "#09090a", light: "#e9e9ec" };
 
 // O tema inicial é aplicado por um script no index.html (escuro por padrão), antes da página aparecer.
+// O atributo data-theme do <html> é a fonte da verdade; no pré-render vale "dark".
+const ouvintes = new Set();
+const lerTema = () => document.documentElement.dataset.theme || "dark";
+const inscrever = (fn) => {
+  ouvintes.add(fn);
+  return () => ouvintes.delete(fn);
+};
+
+const aplicarTema = (tema) => {
+  document.documentElement.dataset.theme = tema;
+  document
+    .querySelector('meta[name="theme-color"]')
+    ?.setAttribute("content", COR_BARRA[tema]);
+  try {
+    localStorage.setItem("portfolio-tema", tema);
+  } catch {
+    // ignora
+  }
+  ouvintes.forEach((fn) => fn());
+};
+
 const BotaoTema = () => {
   const { t } = useI18n();
-  const [tema, setTema] = useState(
-    () => document.documentElement.dataset.theme || "dark",
-  );
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = tema;
-    document
-      .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", COR_BARRA[tema]);
-    try {
-      localStorage.setItem("portfolio-tema", tema);
-    } catch {
-      // ignora
-    }
-  }, [tema]);
+  const tema = useSyncExternalStore(inscrever, lerTema, () => "dark");
 
   const escuro = tema === "dark";
 
   return (
     <button
       type="button"
-      onClick={() => setTema(escuro ? "light" : "dark")}
+      onClick={() => aplicarTema(escuro ? "light" : "dark")}
       aria-label={escuro ? t.nav.temaClaro : t.nav.temaEscuro}
       title={escuro ? t.nav.temaClaro : t.nav.temaEscuro}
       className="grid h-10 w-10 place-items-center overflow-hidden rounded-full text-ink ring-1 ring-line transition-colors hover:bg-paper"

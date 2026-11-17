@@ -30,7 +30,7 @@ const CartaoModelo = ({ modelo }) => {
       >
         <img
           src={modelo.imagem}
-          alt=""
+          alt={`${tm.altImagem} ${nome}`}
           loading="lazy"
           decoding="async"
           width={800}
@@ -39,9 +39,19 @@ const CartaoModelo = ({ modelo }) => {
         />
       </a>
       <div className="flex flex-1 flex-col gap-3 p-4">
-        <h3 className="text-[17px] leading-tight font-semibold tracking-[-0.01em]">
-          {nome}
-        </h3>
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-[17px] leading-tight font-semibold tracking-[-0.01em]">
+            {nome}
+          </h3>
+          {modelo.emIngles && (
+            <span
+              title={tm.emInglesNota}
+              className="shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold tracking-wide text-slate uppercase ring-1 ring-line"
+            >
+              {tm.emIngles}
+            </span>
+          )}
+        </div>
         <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
           <a
             href={modelo.url}

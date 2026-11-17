@@ -1,10 +1,11 @@
 // vite.config.js
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [tailwindcss(), react()],
   build: {
     target: "es2022",
     cssCodeSplit: true,
@@ -13,8 +14,9 @@ export default defineConfig({
         // Bibliotecas em arquivos separados: ficam em cache entre deploys
         manualChunks(id) {
           if (!id.includes("node_modules")) return;
-          if (/[\/](react|react-dom|scheduler)[\/]/.test(id)) return "react";
-          if (/[\/](motion|framer-motion|motion-dom|motion-utils)[\/]/.test(id))
+          // O Vite normaliza os caminhos com "/", inclusive no Windows
+          if (/\/(react|react-dom|scheduler)\//.test(id)) return "react";
+          if (/\/(motion|framer-motion|motion-dom|motion-utils)\//.test(id))
             return "motion";
         },
       },

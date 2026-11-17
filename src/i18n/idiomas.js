@@ -1,32 +1,25 @@
+// Cada idioma tem a sua URL (/, /en/, /es/), pré-renderizada no build para
+// que o Google indexe as três versões.
 export const IDIOMAS = [
-  { id: "pt", rotulo: "PT", nome: "Português", html: "pt-BR" },
-  { id: "en", rotulo: "EN", nome: "English", html: "en" },
-  { id: "es", rotulo: "ES", nome: "Español", html: "es" },
+  { id: "pt", rotulo: "PT", nome: "Português", html: "pt-BR", og: "pt_BR", caminho: "/" },
+  { id: "en", rotulo: "EN", nome: "English", html: "en", og: "en_US", caminho: "/en/" },
+  { id: "es", rotulo: "ES", nome: "Español", html: "es", og: "es_ES", caminho: "/es/" },
 ];
 
-const CHAVE = "portfolio-idioma";
-const validos = IDIOMAS.map((i) => i.id);
+export const CHAVE_IDIOMA = "portfolio-idioma";
 
-// Ordem: ?lang= na URL, última escolha, idioma do navegador, português.
-export function idiomaInicial() {
-  const daUrl = new URLSearchParams(window.location.search).get("lang");
-  if (validos.includes(daUrl)) return daUrl;
+export const idiomaDoCaminho = (caminho = "/") => {
+  const prefixo = caminho.split("/")[1];
+  return IDIOMAS.some((i) => i.id === prefixo && i.id !== "pt") ? prefixo : "pt";
+};
 
-  try {
-    const salvo = localStorage.getItem(CHAVE);
-    if (validos.includes(salvo)) return salvo;
-  } catch {
-    // localStorage indisponível
-  }
-
-  const doNavegador = (navigator.language || "pt").slice(0, 2);
-  return validos.includes(doNavegador) ? doNavegador : "pt";
-}
+export const caminhoDoIdioma = (id) =>
+  IDIOMAS.find((i) => i.id === id)?.caminho ?? "/";
 
 export function salvarIdioma(id) {
   try {
-    localStorage.setItem(CHAVE, id);
+    localStorage.setItem(CHAVE_IDIOMA, id);
   } catch {
-    // ignora
+    // localStorage indisponível
   }
 }
