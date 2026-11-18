@@ -35,7 +35,7 @@ The portfolio showcases a selection of real-world projects, including freelance 
 - **Flávio Pisos e Revestimentos**: flooring store website (client)
 - **Aline & Aramis**: wedding website with online gift registry (client)
 - **Residencial Bem Cuidar**: senior living residence website (client)
-- **SEA Treinamentos**, **Garcia Soluções Elétricas** and **Legado**: landing pages and company websites
+- **SEA Treinamentos** and **Garcia Soluções Elétricas**: landing page and company website
 - **Axyron Global**: offshore and wind energy company website (client)
 - **60 industry templates** (clinics, restaurants, retail, home services, real estate, education, plus US-market sites in English), customizable through URL parameters
 - In development: Trilha Fiel, FinTrack, NEXUS (AMD Developer Hackathon), Laura: The Temporal Ward, NEXUS.OS

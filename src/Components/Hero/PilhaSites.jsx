@@ -7,7 +7,7 @@ import {
   Pause,
   Play,
 } from "lucide-react";
-import { destaquesHero as sitesNoAr } from "../../Data/projetos";
+import sitesNoAr from "../../Data/vitrine";
 import { useI18n } from "../../i18n/contexto";
 import { dominio } from "../../utils/dominio";
 import Navegador from "../Navegador";
@@ -15,9 +15,10 @@ import Navegador from "../Navegador";
 const INTERVALO = 4500;
 const total = sitesNoAr.length;
 
-// Pilha com os sites de clientes em produção: o da frente troca sozinho e abre o site real.
+// Pilha com sites de clientes e modelos publicados: o da frente troca sozinho e abre o site real.
 const PilhaSites = () => {
-  const { t } = useI18n();
+  const { t, idioma } = useI18n();
+  const nomeDe = (s) => (typeof s.nome === "string" ? s.nome : s.nome[idioma]);
   const reduzir = useReducedMotion();
   const [ativo, setAtivo] = useState(0);
   const [pausado, setPausado] = useState(false);
@@ -69,20 +70,24 @@ const PilhaSites = () => {
                   target="_blank"
                   rel="noreferrer"
                   tabIndex={frente ? 0 : -1}
-                  aria-label={`${t.hero.abrirSite}: ${s.nome}`}
+                  aria-label={`${t.hero.abrirSite}: ${nomeDe(s)}`}
                   className="block"
                 >
-                  <img
-                    src={s.imagem}
-                    alt=""
-                    className="aspect-[16/10] h-auto w-full object-cover object-top"
-                    loading={i < 2 ? "eager" : "lazy"}
-                    fetchPriority={i === 0 ? "high" : "auto"}
-                    decoding="async"
-                    width={1200}
-                    height={750}
-                    referrerPolicy="no-referrer"
-                  />
+                  {/* Só carrega as imagens visíveis na pilha (e a que acabou de sair) */}
+                  {pos <= 3 || pos === total - 1 ? (
+                    <img
+                      src={s.imagem}
+                      alt=""
+                      className="aspect-[16/10] h-auto w-full object-cover object-top"
+                      fetchPriority={i === 0 ? "high" : "auto"}
+                      decoding="async"
+                      width={1200}
+                      height={750}
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <div className="aspect-[16/10] w-full" />
+                  )}
                 </a>
               </Navegador>
             </motion.div>
@@ -100,8 +105,13 @@ const PilhaSites = () => {
               exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
-              <p className="truncate font-display text-lg font-semibold tracking-[-0.02em]">
-                {site.nome}
+              <p className="flex items-center gap-2">
+                <span className="truncate font-display text-lg font-semibold tracking-[-0.02em]">
+                  {nomeDe(site)}
+                </span>
+                <span className="shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold tracking-wide text-slate uppercase ring-1 ring-line">
+                  {t.hero[site.tipo]}
+                </span>
               </p>
               <a
                 href={site.site}
@@ -146,31 +156,38 @@ const PilhaSites = () => {
         </div>
       </div>
 
-      {/* Uma barra por site; a do site ativo enche durante o intervalo */}
-      <div className="mt-5 flex gap-1.5" aria-hidden="true">
-        {sitesNoAr.map((s, i) => (
-          <button
-            key={s.id}
-            type="button"
-            tabIndex={-1}
-            onClick={() => setAtivo(i)}
-            className="h-1 flex-1 overflow-hidden rounded-full bg-line"
-          >
-            <motion.span
-              key={i === ativo ? `ativo-${ativo}-${rodando}` : s.id}
-              className="block h-full origin-left rounded-full bg-ink"
-              initial={{ scaleX: i < ativo ? 1 : 0 }}
-              animate={{
-                scaleX: i < ativo ? 1 : i === ativo ? (rodando ? 1 : 0.15) : 0,
-              }}
-              transition={
-                i === ativo && rodando
-                  ? { duration: INTERVALO / 1000, ease: "linear" }
-                  : { duration: 0.3 }
-              }
-            />
-          </button>
-        ))}
+      {/* Contador e barra única: com muitos sites, uma barra por item ficaria minúscula */}
+      <div className="mt-5 flex items-center gap-4" aria-hidden="true">
+        <span className="font-display text-[13px] font-semibold text-slate tabular-nums">
+          {String(ativo + 1).padStart(2, "0")}
+          <span className="opacity-50">
+            {" "}
+            / {String(total).padStart(2, "0")}
+          </span>
+        </span>
+        <div className="relative h-1 flex-1 overflow-hidden rounded-full bg-line">
+          <motion.span
+            className="absolute inset-y-0 left-0 rounded-full bg-slate/60"
+            initial={false}
+            animate={{ width: `${(ativo / total) * 100}%` }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          />
+          <motion.span
+            key={`ativo-${ativo}-${rodando}`}
+            className="absolute inset-y-0 origin-left rounded-full bg-ink"
+            style={{
+              left: `${(ativo / total) * 100}%`,
+              width: `${100 / total}%`,
+            }}
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: rodando ? 1 : 0.3 }}
+            transition={
+              rodando
+                ? { duration: INTERVALO / 1000, ease: "linear" }
+                : { duration: 0.3 }
+            }
+          />
+        </div>
       </div>
     </div>
   );

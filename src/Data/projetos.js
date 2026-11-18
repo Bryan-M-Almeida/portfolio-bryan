@@ -217,39 +217,6 @@ const projetos = [
     },
     stack: ["HTML5", "CSS3", "JavaScript"],
   },
-  {
-    id: "legado",
-    nome: "Legado",
-    aba: "publicados",
-    status: "vendas",
-    ano: 2025,
-    imagem: "/projetos/legado.webp",
-    imagemLonga: "/projetos/legado-full.webp",
-    site: "http://www.meulegadomasculino.com.br/",
-    resumo: {
-      pt: "Página de vendas para um e-book de educação financeira, com domínio próprio.",
-      en: "Sales page for a personal finance e-book, on its own domain.",
-      es: "Página de ventas para un e-book de educación financiera, con dominio propio.",
-    },
-    entregas: {
-      pt: [
-        "Estrutura de página de vendas com chamadas para compra",
-        "Seções de conteúdo do livro e depoimentos",
-        "Layout responsivo e carregamento rápido",
-      ],
-      en: [
-        "Sales page structure with purchase calls to action",
-        "Book content sections and testimonials",
-        "Responsive layout and fast loading",
-      ],
-      es: [
-        "Estructura de página de ventas con llamados a la compra",
-        "Secciones de contenido del libro y testimonios",
-        "Diseño responsivo y carga rápida",
-      ],
-    },
-    stack: ["HTML5", "CSS3", "JavaScript"],
-  },
   // Em desenvolvimento
   {
     id: "trilha-fiel",
@@ -323,11 +290,5 @@ const projetos = [
 export const sitesNoAr = projetos.filter(
   (p) => p.aba === "publicados" && p.site,
 );
-
-// Apresentação do topo: só os melhores trabalhos, nesta ordem.
-const DESTAQUES = ["flavio-pisos", "aline-aramis", "axyron", "bem-cuidar", "sea", "garcia"];
-export const destaquesHero = DESTAQUES.map((id) =>
-  sitesNoAr.find((p) => p.id === id),
-).filter(Boolean);
 
 export default projetos;

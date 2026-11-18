@@ -58,6 +58,8 @@ const textos = {
       anterior: "Site anterior",
       proximo: "Próximo site",
       abrirSite: "Abrir site",
+      cliente: "Cliente",
+      modelo: "Modelo",
       provaSocial: (n, m) =>
         `${n} sites em produção e ${m} modelos por segmento`,
     },
@@ -110,7 +112,6 @@ const textos = {
         `Olá, Bryan. Conheci o projeto ${nome} pelo seu portfólio e gostaria de agendar uma demonstração.`,
       status: {
         cliente: "Cliente",
-        vendas: "Página de vendas",
         saas: "SaaS",
         hackathon: "Projeto de hackathon",
         jogo: "Jogo em Unity",
@@ -300,6 +301,8 @@ const textos = {
       anterior: "Previous site",
       proximo: "Next site",
       abrirSite: "Open site",
+      cliente: "Client",
+      modelo: "Template",
       provaSocial: (n, m) => `${n} websites live and ${m} industry templates`,
     },
     projetos: {
@@ -351,7 +354,6 @@ const textos = {
         `Hi Bryan, I came across ${nome} in your portfolio and would like to schedule a demo.`,
       status: {
         cliente: "Client",
-        vendas: "Sales page",
         saas: "SaaS",
         hackathon: "Hackathon project",
         jogo: "Unity game",
@@ -541,6 +543,8 @@ const textos = {
       anterior: "Sitio anterior",
       proximo: "Siguiente sitio",
       abrirSite: "Abrir sitio",
+      cliente: "Cliente",
+      modelo: "Plantilla",
       provaSocial: (n, m) =>
         `${n} sitios en producción y ${m} plantillas por rubro`,
     },
@@ -593,7 +597,6 @@ const textos = {
         `Hola, Bryan. Conocí el proyecto ${nome} en su portafolio y me gustaría agendar una demostración.`,
       status: {
         cliente: "Cliente",
-        vendas: "Página de ventas",
         saas: "SaaS",
         hackathon: "Proyecto de hackathon",
         jogo: "Juego en Unity",
