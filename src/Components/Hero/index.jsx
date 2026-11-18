@@ -34,12 +34,12 @@ const Hero = () => {
 
   return (
     <section ref={secao} id="inicio" className="pt-28 pb-20 md:pt-36 md:pb-28">
-      <div className="container-page grid items-center gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
+      <div className="container-page grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-14">
         <motion.div style={{ y: yTexto, opacity: opacidade }}>
           {/* key no idioma: a frase entra de novo ao trocar a língua */}
           <h1
             key={idioma}
-            className="text-[clamp(2.4rem,4.6vw,3.9rem)] leading-[0.98] font-extrabold tracking-[-0.045em]"
+            className="text-[clamp(2.05rem,10.4vw,2.4rem)] sm:text-[clamp(2.4rem,4.6vw,3.9rem)] leading-[0.98] font-extrabold tracking-[-0.045em]"
           >
             {/* Linha de apoio dentro do h1: diz o que eu faço com as palavras que as pessoas buscam */}
             <motion.span
@@ -94,14 +94,21 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.75 }}
-            className="mt-8 flex items-center gap-2 text-[15px] text-slate"
+            className="mt-8 flex items-start gap-2 text-[15px] text-slate"
           >
-            <Check size={17} className="text-cobalt" aria-hidden="true" />
+            <Check
+              size={17}
+              className="mt-[0.2em] shrink-0 text-cobalt"
+              aria-hidden="true"
+            />
             {t.hero.provaSocial(sitesNoAr.length, modelos.length)}
           </motion.p>
         </motion.div>
 
-        <motion.div style={{ y: yPilha }} className="pt-6">
+        <motion.div
+          style={{ y: yPilha }}
+          className="mx-auto w-full max-w-2xl pt-6 lg:max-w-none"
+        >
           <motion.div
             initial={{ opacity: 0, y: 48, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}

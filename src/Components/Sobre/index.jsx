@@ -13,8 +13,8 @@ const Sobre = () => {
 
   return (
     <section id="sobre" className="bg-paper py-24 md:py-32">
-      <div className="container-page grid gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-        <div className="mx-auto w-full max-w-sm lg:sticky lg:top-28 lg:mx-0 lg:self-start">
+      <div className="container-page grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
+        <div className="mx-auto w-full max-w-[280px] sm:max-w-sm lg:sticky lg:top-28 lg:mx-0 lg:self-start">
           {/* Parallax: a foto desliza dentro da moldura enquanto a seção passa */}
           <div
             ref={refFoto}
@@ -60,9 +60,9 @@ const Sobre = () => {
             <p className="mt-2 text-slate">{t.sobre.recrutadoresTexto}</p>
             <ul className="mt-5 space-y-2">
               {t.sobre.disponibilidade.map((d) => (
-                <li key={d} className="flex items-center gap-3 font-medium">
+                <li key={d} className="flex items-start gap-3 font-medium">
                   <span
-                    className="h-1.5 w-1.5 rounded-full bg-cobalt"
+                    className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt"
                     aria-hidden="true"
                   />
                   {d}

@@ -10,7 +10,7 @@ const Faq = () => {
 
   return (
     <section id="faq" className="py-24 md:py-32">
-      <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <div className="container-page grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
         <Revelar className="lg:sticky lg:top-28 lg:self-start">
           <h2 className="titulo-secao">
             <LetrasZoom texto={t.faq.titulo} />

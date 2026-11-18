@@ -58,10 +58,10 @@ const Contato = () => {
           </h2>
           <p className="mt-5 max-w-md text-lg text-slate">{c.subtitulo}</p>
 
-          <div className="mt-10 flex max-w-md items-center gap-2 rounded-2xl bg-paper p-2 pl-5 ring-1 ring-line">
+          <div className="mt-10 flex max-w-md items-center gap-2 rounded-2xl bg-paper p-2 pl-4 sm:pl-5 ring-1 ring-line">
             <a
               href={`mailto:${perfil.email}`}
-              className="min-w-0 flex-1 truncate font-medium hover:text-cobalt"
+              className="min-w-0 flex-1 truncate text-[clamp(0.8rem,3.6vw,1rem)] font-medium hover:text-cobalt"
             >
               {perfil.email}
             </a>
@@ -140,7 +140,7 @@ const Contato = () => {
           </div>
 
           <form onSubmit={enviar} className="mt-7 space-y-5">
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label htmlFor="nome" className="rotulo">
                   {c.nome}

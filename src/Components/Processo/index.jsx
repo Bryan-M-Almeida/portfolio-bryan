@@ -17,7 +17,7 @@ const Processo = () => {
           <p className="mt-4 text-lg text-slate">{t.processo.subtitulo}</p>
         </Revelar>
 
-        <ol className="relative mt-16 grid gap-10 md:grid-cols-4 md:gap-8">
+        <ol className="relative mt-16 grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-8">
           <motion.span
             aria-hidden="true"
             className="absolute top-5 left-5 hidden h-px origin-left bg-slate/50 md:block"
