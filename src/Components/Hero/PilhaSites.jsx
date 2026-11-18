@@ -7,7 +7,7 @@ import {
   Pause,
   Play,
 } from "lucide-react";
-import { sitesNoAr } from "../../Data/projetos";
+import { destaquesHero as sitesNoAr } from "../../Data/projetos";
 import { useI18n } from "../../i18n/contexto";
 import { dominio } from "../../utils/dominio";
 import Navegador from "../Navegador";

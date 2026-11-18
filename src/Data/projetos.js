@@ -319,9 +319,15 @@ const projetos = [
   },
 ];
 
-// Sites de clientes publicados, usados na apresentação do topo.
+// Sites de clientes publicados (contagem do topo e dados estruturados).
 export const sitesNoAr = projetos.filter(
   (p) => p.aba === "publicados" && p.site,
 );
+
+// Apresentação do topo: só os melhores trabalhos, nesta ordem.
+const DESTAQUES = ["flavio-pisos", "aline-aramis", "axyron", "bem-cuidar", "sea", "garcia"];
+export const destaquesHero = DESTAQUES.map((id) =>
+  sitesNoAr.find((p) => p.id === id),
+).filter(Boolean);
 
 export default projetos;
